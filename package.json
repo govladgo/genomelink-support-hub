@@ -1,0 +1,27 @@
+{
+  "name": "genomelink-support-hub",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Genomelink DNA Match Support hub — unified how-to/help site for every DNA Match tool (DNA Painter, Match Hub, Network Graph, Clusters, the 8 one-on-one tools, etc.).",
+  "scripts": {
+    "dev": "next dev -p 3013",
+    "build": "next build",
+    "start": "next start -p 3013",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.35",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.35",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

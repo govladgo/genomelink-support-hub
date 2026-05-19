@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================================================
+   Genomelink Design System -- CSS Custom Properties
+   =================================================== */
+:root {
+  color-scheme: light;
+
+  /* -- Brand / Semantic -- */
+  --gl-color-primary-dark: #263856;
+  --gl-color-primary-attention: #FF7C11;
+  --gl-color-primary-attention-hover: #f2690b;
+  --gl-color-primary-attention-dark: #B85800;
+  --gl-color-secondary: #4582C9;
+  --gl-color-secondary-light: #7AB8FF;
+  --gl-color-secondary-dark: #245FA4;
+  --gl-color-positive: #7ABF43;
+  --gl-color-positive-dark: #5EA634;
+  --gl-color-negative: #D52C43;
+  --gl-color-negative-dark: #A82433;
+  --gl-color-warning: #FFB300;
+  --gl-color-warning-dark: #B07A00;
+
+  /* -- GL Library Colors -- */
+  --gl-color-black: #263856;
+  --gl-color-black-60: rgba(38, 56, 86, 0.6);
+  --gl-color-black-40: rgba(38, 56, 86, 0.4);
+  --gl-color-black-30: rgba(38, 56, 86, 0.3);
+  --gl-color-black-20: rgba(38, 56, 86, 0.2);
+  --gl-color-black-10: rgba(38, 56, 86, 0.1);
+  --gl-color-orange: #ff7c11;
+  --gl-color-orange-dark: #f2690b;
+  --gl-color-blue: #4582c9;
+  --gl-color-blue-dark: #245fa4;
+  --gl-color-text: #263856;
+  --gl-color-text-muted: #6786ac;
+  --gl-color-text-subtle: #8fabcf;
+
+  /* -- Gray scale -- */
+  --gl-color-gray-600: #6786ac;
+  --gl-color-gray-500: #8fabcf;
+  --gl-color-gray-400: #b0c4de;
+  --gl-color-gray-300: #c9d6e4;
+  --gl-color-gray-200: #e2eaf3;
+  --gl-color-gray-100: #e8eff8;
+  --gl-color-gray-50: #f5f8fc;
+  --gl-color-gray-dark2: #6786AC;
+  --gl-color-gray-dark: #8FABCF;
+  --gl-color-gray-semi: #C9D6E4;
+  --gl-color-gray-light: #E8EFF8;
+  --gl-color-gray-light-60: rgba(232, 239, 248, 0.60);
+  --gl-color-border: #E0E4EA;
+  --gl-color-border-light: #F0F2F5;
+  --gl-color-bg: #f5f8fc;
+  --gl-color-gray-bg: #f9fcff;
+  --gl-color-surface: #FFFFFF;
+
+  /* -- Callout tints (lifted from Figma) -- */
+  --gl-color-info-bg: rgba(122, 184, 255, 0.10);
+  --gl-color-info-border: rgba(122, 184, 255, 0.30);
+  --gl-color-warn-bg: rgba(255, 124, 17, 0.10);
+  --gl-color-warn-border: rgba(255, 124, 17, 0.60);
+
+  /* -- Hero (marketing CTA) -- */
+  --gl-color-hero-sky: #CAF0F2;
+
+  /* -- Radius -- */
+  --gl-radius-sm: 0.25rem;
+  --gl-radius-md: 0.5rem;
+  --gl-radius-lg: 0.75rem;
+  --gl-radius-xl: 1rem;
+  --gl-radius-pill: 9999px;
+
+  /* -- Transitions -- */
+  --gl-transition-base: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+
+  /* -- Shadows -- */
+  --gl-shadow-sm: 0 1px 2px rgba(38, 56, 86, 0.06);
+  --gl-shadow-md: 0 2px 8px rgba(38, 56, 86, 0.1);
+  --gl-shadow-lg: 0 8px 24px rgba(38, 56, 86, 0.12);
+  --gl-shadow-light: 0px 4px 10px rgba(74, 93, 128, 0.13);
+
+  /* -- Font -- */
+  --gl-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ===================================================
+   Base
+   =================================================== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--gl-font);
+  background: var(--gl-color-gray-bg);
+  color: var(--gl-color-primary-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--gl-color-secondary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================================
+   GL Buttons (subset — primary + secondary)
+   =================================================== */
+.gl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: var(--gl-radius-pill);
+  font-family: var(--gl-font);
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--gl-transition-base);
+  white-space: nowrap;
+  border: 1px solid transparent;
+  line-height: 1;
+  text-decoration: none;
+  letter-spacing: 0;
+  height: 3rem;
+  padding: 14px 24px;
+  font-size: 0.875rem;
+}
+.gl-btn:hover { opacity: 0.9; text-decoration: none; }
+
+.gl-btn--primary {
+  background: var(--gl-color-primary-attention);
+  color: #fff;
+}
+.gl-btn--primary:hover:not(:disabled) {
+  background: var(--gl-color-primary-attention-hover);
+}
+
+.gl-btn--secondary {
+  background: transparent;
+  border: 1px solid rgba(38, 56, 86, 0.60);
+  color: var(--gl-color-primary-dark);
+}
+.gl-btn--secondary:hover:not(:disabled) {
+  border-color: var(--gl-color-gray-dark);
+}
+
+.gl-btn--mobile {
+  width: 100%;
+  height: 3.5rem;
+  padding: 16px 24px;
+  font-size: 0.875rem;
+}
+
+/* ===================================================
+   Hub-specific layout primitives
+   =================================================== */
+.hub-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 32px 64px;
+  align-items: start;
+}
+
+.hub-content {
+  background: var(--gl-color-surface);
+  border-radius: 12px;
+  border: 1px solid rgba(201, 214, 228, 0.6);
+  padding: 48px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 0;
+  font-family: var(--gl-font);
+}
+
+.hub-sidebar-only-desktop { display: block; }
+.hub-dropdown-only-mobile { display: none; }
+
+@media (max-width: 735px) {
+  .hub-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 16px 32px;
+  }
+  .hub-content {
+    padding: 24px 20px;
+    gap: 20px;
+  }
+  .hub-sidebar-only-desktop { display: none; }
+  .hub-dropdown-only-mobile { display: block; }
+}
+
+/* ===================================================
+   Content typography helpers
+   =================================================== */
+.hub-eyebrow {
+  font-family: var(--gl-font);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--gl-color-secondary);
+  margin: 0;
+}
+
+.hub-h1 {
+  font-family: var(--gl-font);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+  color: var(--gl-color-primary-dark);
+  margin: 12px 0 0;
+}
+
+.hub-lede {
+  font-family: var(--gl-font);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--gl-color-text-muted);
+  margin: 12px 0 0;
+}
+
+.hub-h2 {
+  font-family: var(--gl-font);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--gl-color-primary-dark);
+  margin: 0 0 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gl-color-border-light);
+}
+
+.hub-h3 {
+  font-family: var(--gl-font);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--gl-color-primary-dark);
+  margin: 0 0 8px;
+}
+
+.hub-para {
+  font-family: var(--gl-font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--gl-color-text-muted);
+  margin: 0;
+}
+
+.hub-list {
+  margin: 0;
+  padding-left: 20px;
+  font-family: var(--gl-font);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--gl-color-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
