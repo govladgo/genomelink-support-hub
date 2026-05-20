@@ -9,7 +9,7 @@ import { DNA_PAINTER_URL } from '@/lib/toolUrls';
 const NAV = findNavItem('dna-painter')!;
 
 export const metadata = {
-  title: `${NAV.label} — DNA Match Support hub`,
+  title: `${NAV.label} — DNA Match Support Hub`,
 };
 
 export default function Page() {

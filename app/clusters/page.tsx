@@ -6,7 +6,7 @@ import { findNavItem } from '@/lib/nav';
 const NAV = findNavItem('clusters')!;
 
 export const metadata = {
-  title: `${NAV.label} — DNA Match Support hub`,
+  title: `${NAV.label} — DNA Match Support Hub`,
 };
 
 export default function Page() {

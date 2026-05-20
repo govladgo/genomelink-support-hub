@@ -7,7 +7,7 @@ import { ONE_ON_ONE_URL } from '@/lib/toolUrls';
 const NAV = findNavItem('cm-clarity')!;
 
 export const metadata = {
-  title: `${NAV.label} — DNA Match Support hub`,
+  title: `${NAV.label} — DNA Match Support Hub`,
 };
 
 export default function Page() {

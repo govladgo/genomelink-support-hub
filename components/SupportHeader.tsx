@@ -4,8 +4,8 @@
  * Top header bar matching the Genomelink production app shell.
  *
  * Figma references:
- *   Desktop — 12827:56827 (DNA Match Support hub desktop)
- *   Mobile  — 12827:57102 (DNA Match Support hub mobile)
+ *   Desktop — 12827:56827 (DNA Match Support Hub desktop)
+ *   Mobile  — 12827:57102 (DNA Match Support Hub mobile)
  *
  * Visual-only: nav items don't navigate, dropdowns don't open, upgrade button
  * doesn't go anywhere. Same surface shipped by genomelink-match-hub /

@@ -4,11 +4,10 @@ import './globals.css';
 import { SupportHeader } from '@/components/SupportHeader';
 import { SupportSidebar } from '@/components/SupportSidebar';
 import { SupportSidebarMobile } from '@/components/SupportSidebarMobile';
-import { MarketingCTA } from '@/components/MarketingCTA';
 import { SupportFooter } from '@/components/SupportFooter';
 
 export const metadata: Metadata = {
-  title: 'DNA Match Support hub — Genomelink',
+  title: 'DNA Match Support Hub — Genomelink',
   description:
     'How-to guides for every Genomelink DNA Match tool — DNA Painter, Match Hub, Network Graph, Clusters, and the eight 1-on-1 tools.',
 };
@@ -25,7 +24,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
         </div>
-        <MarketingCTA />
         <SupportFooter />
       </body>
     </html>

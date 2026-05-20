@@ -116,7 +116,7 @@ export function SupportSidebar() {
         position: 'sticky',
         top: 24,
       }}
-      aria-label="Support hub navigation"
+      aria-label="Support Hub navigation"
     >
       <h2
         style={{
@@ -129,7 +129,7 @@ export function SupportSidebar() {
           color: 'var(--gl-color-primary-dark)',
         }}
       >
-        DNA Match Support hub
+        DNA Match Support Hub
       </h2>
 
       <nav style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>

@@ -8,7 +8,7 @@ import { ConfidenceChip } from '@/components/badges';
 const NAV = findNavItem('triangulation-lens')!;
 
 export const metadata = {
-  title: `${NAV.label} — DNA Match Support hub`,
+  title: `${NAV.label} — DNA Match Support Hub`,
 };
 
 export default function Page() {

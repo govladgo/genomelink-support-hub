@@ -8,7 +8,7 @@ import { VerdictBadge } from '@/components/VerdictBadge';
 const NAV = findNavItem('y-mt-compare')!;
 
 export const metadata = {
-  title: `${NAV.label} — DNA Match Support hub`,
+  title: `${NAV.label} — DNA Match Support Hub`,
 };
 
 export default function Page() {

@@ -8,7 +8,7 @@ import { MATCH_HUB_URL } from '@/lib/toolUrls';
 const NAV = findNavItem('match-hub')!;
 
 export const metadata = {
-  title: `${NAV.label} — DNA Match Support hub`,
+  title: `${NAV.label} — DNA Match Support Hub`,
 };
 
 export default function Page() {

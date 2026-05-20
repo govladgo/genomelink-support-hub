@@ -1,4 +1,4 @@
-# Genomelink DNA Match Support hub
+# Genomelink DNA Match Support Hub
 
 A unified how-to/help site that consolidates content for every DNA Match tool in the Genomelink family.
 
