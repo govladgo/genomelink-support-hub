@@ -182,22 +182,22 @@ export default function Page() {
 const sectionTitle: React.CSSProperties = {
   margin: 0,
   fontSize: 20,
-  fontWeight: 700,
+  fontWeight: 600,
   lineHeight: '28px',
   color: 'var(--gl-color-primary-dark)',
 
 
   marginBottom: 8,
 };
-const bodyText: React.CSSProperties = { margin: 0, fontSize: 14, lineHeight: '22px', color: 'var(--gl-color-text-muted)' };
+const bodyText: React.CSSProperties = { margin: 0, fontSize: 16, lineHeight: '24px', color: 'var(--gl-color-text-muted)' };
 const orderedList: React.CSSProperties = {
   margin: 0,
   paddingLeft: 24,
   display: 'flex',
   flexDirection: 'column',
   gap: 8,
-  fontSize: 14,
-  lineHeight: '22px',
+  fontSize: 16,
+  lineHeight: '24px',
   color: 'var(--gl-color-text-muted)',
 };
 const table: React.CSSProperties = { width: '100%', borderCollapse: 'collapse', fontSize: 14 };
@@ -205,7 +205,7 @@ const th: React.CSSProperties = {
   textAlign: 'left',
   background: 'var(--gl-color-info-bg)',
   color: 'var(--gl-color-primary-dark)',
-  fontWeight: 700,
+  fontWeight: 600,
   padding: '10px 12px',
 
 };

@@ -154,10 +154,10 @@ export default function Page() {
 }
 
 const sectionGroup: React.CSSProperties = { display: 'flex', flexDirection: 'column', gap: 12, scrollMarginTop: 24 };
-const sectionTitle: React.CSSProperties = { margin: 0, fontSize: 20, fontWeight: 700, lineHeight: '28px', color: 'var(--gl-color-primary-dark)', paddingBottom: 12, borderBottom: '1px solid var(--gl-color-border-light)', marginBottom: 12 };
-const bodyText: React.CSSProperties = { margin: 0, fontSize: 14, lineHeight: '22px', color: 'var(--gl-color-text-muted)' };
-const orderedList: React.CSSProperties = { margin: 0, paddingLeft: 24, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 14, lineHeight: '22px', color: 'var(--gl-color-text-muted)' };
-const tipCallout: React.CSSProperties = { background: 'var(--gl-color-info-bg)', border: '1px solid var(--gl-color-info-border)', borderRadius: 16, padding: 16, fontSize: 14, color: 'var(--gl-color-primary-dark)', lineHeight: '22px', display: 'flex', flexDirection: 'column', gap: 4 };
+const sectionTitle: React.CSSProperties = { margin: 0, fontSize: 24, fontWeight: 600, lineHeight: '28px', color: 'var(--gl-color-primary-dark)', paddingBottom: 12, borderBottom: '1px solid var(--gl-color-border-light)', marginBottom: 12 };
+const bodyText: React.CSSProperties = { margin: 0, fontSize: 16, lineHeight: '24px', color: 'var(--gl-color-text-muted)' };
+const orderedList: React.CSSProperties = { margin: 0, paddingLeft: 24, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 16, lineHeight: '24px', color: 'var(--gl-color-text-muted)' };
+const tipCallout: React.CSSProperties = { background: 'var(--gl-color-info-bg)', border: '1px solid var(--gl-color-info-border)', borderRadius: 16, padding: 16, fontSize: 16, color: 'var(--gl-color-primary-dark)', lineHeight: '24px', display: 'flex', flexDirection: 'column', gap: 4 };
 const calloutTitle: React.CSSProperties = { fontSize: 11, fontWeight: 700, color: 'var(--gl-color-secondary-dark)', textTransform: 'uppercase', letterSpacing: '0.06em' };
 const table: React.CSSProperties = { width: '100%', borderCollapse: 'collapse', fontSize: 14 };
 const th: React.CSSProperties = { textAlign: 'left', background: 'var(--gl-color-info-bg)', color: 'var(--gl-color-primary-dark)', fontWeight: 700, padding: '10px 12px', borderBottom: '1px solid var(--gl-color-border-light)' };

@@ -214,25 +214,31 @@ a:hover {
 }
 
 /* ===================================================
-   Content typography helpers
+   Content typography helpers — Figma tokens 12827:56863 / 12827:57395
+   - H1 (page title):        36/48 semibold (desktop) · 24/32 (mobile)
+   - H3 Semibold (section):  24/32 semibold
+   - H4 Semibold (subsec):   20/28 semibold
+   - P Text Semibold:        16/24 semibold (eyebrow)
+   - P Text Regular:         16/24 regular (body, lede)
+   - XS Text Semibold:       12/16 semibold (tags)
    =================================================== */
 .hub-eyebrow {
   font-family: var(--gl-font);
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
-  color: var(--gl-color-secondary);
+  color: var(--gl-color-text-muted);
   margin: 0;
 }
 
 .hub-h1 {
   font-family: var(--gl-font);
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 40px;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 48px;
   color: var(--gl-color-primary-dark);
-  margin: 12px 0 0;
-  letter-spacing: -0.01em;
+  margin: 16px 0 0;
+  letter-spacing: 0;
 }
 
 .hub-lede {
@@ -247,10 +253,18 @@ a:hover {
 .hub-h2 {
   font-family: var(--gl-font);
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 32px;
   color: var(--gl-color-primary-dark);
   margin: 0 0 12px;
+}
+
+@media (max-width: 735px) {
+  .hub-h1 {
+    font-size: 24px;
+    line-height: 32px;
+    margin-top: 12px;
+  }
 }
 
 .hub-h3 {

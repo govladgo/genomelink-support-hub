@@ -465,30 +465,28 @@ export default function Page() {
 const sectionGroup: React.CSSProperties = { display: 'flex', flexDirection: 'column', gap: 12, scrollMarginTop: 24 };
 const h2Style: React.CSSProperties = {
   margin: 0,
-  fontSize: 20,
-  fontWeight: 700,
-  lineHeight: '28px',
+  fontSize: 24,
+  fontWeight: 600,
+  lineHeight: '32px',
   color: 'var(--gl-color-primary-dark)',
-
-
   marginBottom: 8,
 };
 const h3Style: React.CSSProperties = {
   margin: '8px 0 4px',
-  fontSize: 16,
-  fontWeight: 700,
-  lineHeight: '30px',
+  fontSize: 18,
+  fontWeight: 600,
+  lineHeight: '26px',
   color: 'var(--gl-color-primary-dark)',
 };
-const bodyText: React.CSSProperties = { margin: 0, fontSize: 14, lineHeight: '22px', color: 'var(--gl-color-text-muted)' };
+const bodyText: React.CSSProperties = { margin: 0, fontSize: 16, lineHeight: '24px', color: 'var(--gl-color-text-muted)' };
 const orderedList: React.CSSProperties = {
   margin: 0,
   paddingLeft: 24,
   display: 'flex',
   flexDirection: 'column',
   gap: 8,
-  fontSize: 14,
-  lineHeight: '22px',
+  fontSize: 16,
+  lineHeight: '24px',
   color: 'var(--gl-color-text-muted)',
 };
 const table: React.CSSProperties = { width: '100%', borderCollapse: 'collapse', fontSize: 14 };
@@ -496,7 +494,7 @@ const th: React.CSSProperties = {
   textAlign: 'left',
   background: 'var(--gl-color-info-bg)',
   color: 'var(--gl-color-primary-dark)',
-  fontWeight: 700,
+  fontWeight: 600,
   padding: '10px 12px',
 
 };
@@ -521,7 +519,7 @@ const glossary: React.CSSProperties = {
 };
 const dt: React.CSSProperties = {
   fontSize: 13,
-  fontWeight: 700,
+  fontWeight: 600,
   color: 'var(--gl-color-primary-dark)',
   paddingTop: 4,
 };

@@ -70,8 +70,8 @@ export default function Page() {
               <p
                 style={{
                   margin: 0,
-                  fontSize: 14,
-                  lineHeight: '22px',
+                  fontSize: 16,
+                  lineHeight: '24px',
                   color: 'var(--gl-color-text-muted)',
                 }}
               >
@@ -128,9 +128,9 @@ export default function Page() {
 
 const sectionTitle: React.CSSProperties = {
   margin: 0,
-  fontSize: 22,
-  fontWeight: 700,
-  lineHeight: '30px',
+  fontSize: 24,
+  fontWeight: 600,
+  lineHeight: '32px',
   color: 'var(--gl-color-primary-dark)',
 
 
@@ -139,14 +139,14 @@ const sectionTitle: React.CSSProperties = {
 const listStyle: React.CSSProperties = {
   margin: 0,
   paddingLeft: 20,
-  fontSize: 14,
-  lineHeight: '22px',
+  fontSize: 16,
+  lineHeight: '24px',
   color: 'var(--gl-color-text-muted)',
   display: 'flex',
   flexDirection: 'column',
   gap: 10,
 };
-const paraStyle: React.CSSProperties = { margin: 0, fontSize: 14, lineHeight: '22px', color: 'var(--gl-color-text-muted)' };
+const paraStyle: React.CSSProperties = { margin: 0, fontSize: 16, lineHeight: '24px', color: 'var(--gl-color-text-muted)' };
 const code: React.CSSProperties = {
   background: 'var(--gl-color-gray-light)',
   padding: '1px 5px',
