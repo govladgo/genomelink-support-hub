@@ -6,13 +6,13 @@ import { usePathname } from 'next/navigation';
 import { NAV_GROUPS, NavItem } from '@/lib/nav';
 
 /**
- * Tool-specific icon (18×18) rendered via CSS mask-image so the same PNG
+ * Tool-specific icon (18×18) rendered via CSS mask-image so the same SVG
  * works as muted gray when inactive and white when active — just flip
- * background-color on the host span. Assets live in /public/icons/<slug>.png
- * (downloaded straight from Figma).
+ * background-color on the host span. Assets live in /public/icons/<slug>.svg
+ * (stroke-based vectors supplied alongside the Figma file).
  */
 function ToolIcon({ slug, active }: { slug: string; active: boolean }) {
-  const url = `/icons/${slug}.png`;
+  const url = `/icons/${slug}.svg`;
   return (
     <span
       aria-hidden
