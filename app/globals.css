@@ -163,42 +163,51 @@ a:hover {
 }
 
 /* ===================================================
-   Hub-specific layout primitives
+   Hub-specific layout primitives — flat layout per Figma 12827:56826.
+   Sidebar + content sit directly on the page background; no card chrome.
    =================================================== */
 .hub-grid {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 32px;
-  max-width: 1280px;
+  grid-template-columns: 240px 1fr;
+  gap: 64px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 32px 32px 64px;
+  padding: 32px 64px 64px;
   align-items: start;
 }
 
 .hub-content {
-  background: var(--gl-color-surface);
-  border-radius: 12px;
-  border: 1px solid rgba(201, 214, 228, 0.6);
-  padding: 48px 64px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 32px;
   min-width: 0;
+  max-width: 880px;
   font-family: var(--gl-font);
 }
 
 .hub-sidebar-only-desktop { display: block; }
 .hub-dropdown-only-mobile { display: none; }
 
+@media (max-width: 1100px) {
+  .hub-grid {
+    padding: 24px 32px 48px;
+    gap: 40px;
+  }
+}
+
 @media (max-width: 735px) {
   .hub-grid {
     grid-template-columns: 1fr;
     gap: 16px;
-    padding: 16px 16px 32px;
+    padding: 16px 20px 32px;
   }
   .hub-content {
-    padding: 24px 20px;
-    gap: 20px;
+    padding: 0;
+    gap: 24px;
   }
   .hub-sidebar-only-desktop { display: none; }
   .hub-dropdown-only-mobile { display: block; }
@@ -209,40 +218,39 @@ a:hover {
    =================================================== */
 .hub-eyebrow {
   font-family: var(--gl-font);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
-  line-height: 20px;
+  line-height: 24px;
   color: var(--gl-color-secondary);
   margin: 0;
 }
 
 .hub-h1 {
   font-family: var(--gl-font);
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
-  line-height: 36px;
+  line-height: 40px;
   color: var(--gl-color-primary-dark);
   margin: 12px 0 0;
+  letter-spacing: -0.01em;
 }
 
 .hub-lede {
   font-family: var(--gl-font);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   color: var(--gl-color-text-muted);
-  margin: 12px 0 0;
+  margin: 16px 0 0;
 }
 
 .hub-h2 {
   font-family: var(--gl-font);
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
-  line-height: 28px;
+  line-height: 32px;
   color: var(--gl-color-primary-dark);
   margin: 0 0 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--gl-color-border-light);
 }
 
 .hub-h3 {

@@ -128,13 +128,13 @@ export default function Page() {
 
 const sectionTitle: React.CSSProperties = {
   margin: 0,
-  fontSize: 18,
+  fontSize: 22,
   fontWeight: 700,
-  lineHeight: '24px',
+  lineHeight: '30px',
   color: 'var(--gl-color-primary-dark)',
-  paddingBottom: 12,
-  borderBottom: '1px solid var(--gl-color-border-light)',
-  marginBottom: 16,
+
+
+  marginBottom: 8,
 };
 const listStyle: React.CSSProperties = {
   margin: 0,

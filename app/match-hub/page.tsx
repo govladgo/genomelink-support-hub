@@ -185,9 +185,9 @@ const sectionTitle: React.CSSProperties = {
   fontWeight: 700,
   lineHeight: '28px',
   color: 'var(--gl-color-primary-dark)',
-  paddingBottom: 12,
-  borderBottom: '1px solid var(--gl-color-border-light)',
-  marginBottom: 12,
+
+
+  marginBottom: 8,
 };
 const bodyText: React.CSSProperties = { margin: 0, fontSize: 14, lineHeight: '22px', color: 'var(--gl-color-text-muted)' };
 const orderedList: React.CSSProperties = {
@@ -207,12 +207,12 @@ const th: React.CSSProperties = {
   color: 'var(--gl-color-primary-dark)',
   fontWeight: 700,
   padding: '10px 12px',
-  borderBottom: '1px solid var(--gl-color-border-light)',
+
 };
 const td: React.CSSProperties = {
   padding: '10px 12px',
   color: 'var(--gl-color-primary-dark)',
   lineHeight: '20px',
-  borderBottom: '1px solid var(--gl-color-border-light)',
+
 };
 const tdRight: React.CSSProperties = { ...td, textAlign: 'right', fontWeight: 600 };

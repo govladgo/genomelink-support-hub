@@ -91,10 +91,8 @@ export function SupportSidebar() {
     <aside
       className="hub-sidebar-only-desktop"
       style={{
-        background: 'var(--gl-color-surface)',
-        borderRadius: 12,
-        border: '1px solid rgba(201, 214, 228, 0.6)',
-        padding: 16,
+        background: 'transparent',
+        padding: 0,
         position: 'sticky',
         top: 24,
       }}
@@ -102,10 +100,12 @@ export function SupportSidebar() {
     >
       <h2
         style={{
-          margin: '4px 8px 12px',
+          margin: '0 0 16px',
+          padding: '0 12px',
           fontFamily: 'var(--gl-font)',
-          fontSize: 14,
+          fontSize: 16,
           fontWeight: 700,
+          lineHeight: '24px',
           color: 'var(--gl-color-primary-dark)',
         }}
       >
