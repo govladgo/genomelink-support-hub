@@ -35,7 +35,7 @@ export default function Page() {
           </li>
           <li>
             <strong>Triangulation flag</strong> — when the active match has ≥2 triangulated groups
-            (per <Link href="/triangulation-lens">Triangulation Lens</Link>), every candidate row
+            (per Triangulation Lens), every candidate row
             shows a <code style={code}>✓ TG</code> badge.
           </li>
         </ul>

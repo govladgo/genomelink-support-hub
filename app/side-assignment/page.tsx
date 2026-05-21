@@ -55,7 +55,7 @@ export default function Page() {
         <ol style={listStyle}>
           <li>
             <strong>Cluster scan.</strong> Reuses{' '}
-            <Link href="/triangulation-lens">Triangulation Lens</Link>&apos;s algorithm to find every
+            Triangulation Lens&apos;s algorithm to find every
             other match in your dataset that shares a segment with the active match (≥7 cM overlap).
           </li>
           <li>
@@ -90,7 +90,7 @@ export default function Page() {
           If you tag the active match yourself, that tag becomes the ground truth — the
           algorithm&apos;s recommendation drops into a small &ldquo;the algorithm would have said X
           at Y%&rdquo; footnote below your tag. Tags persist to the match&apos;s{' '}
-          <Link href="/case-file">Case File</Link> and survive page reloads.
+          Case File and survive page reloads.
         </p>
       </section>
 
