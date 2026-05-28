@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ContentLayout } from '@/components/ContentLayout';
+import { InfoCallout } from '@/components/InfoCallout';
 import { findNavItem } from '@/lib/nav';
 import { ONE_ON_ONE_URL } from '@/lib/toolUrls';
 
@@ -17,6 +18,10 @@ export default function Page() {
       title="WATO Workspace — how it works"
       lede={`Any single cM value fits many possible relationships — that's the genealogical reality the Shared cM Project quantifies. WATO Workspace ranks the candidates you think this match could be, conditioning on the observed cM, segment data, and the active population context. It's the "What Are The Odds" method, tightened with segment evidence.`}
     >
+      <InfoCallout variant="warning" title="Coming soon">
+        WATO Workspace is in active development and not yet available in the live Genomelink
+        product. The article below describes the planned tool — features may change before launch.
+      </InfoCallout>
       <section>
         <h2 style={sectionTitle}>The signals</h2>
         <ul style={listStyle}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ContentLayout } from '@/components/ContentLayout';
+import { InfoCallout } from '@/components/InfoCallout';
 import { findNavItem } from '@/lib/nav';
 import { ONE_ON_ONE_URL } from '@/lib/toolUrls';
 import { CoverageBucketBadge } from '@/components/badges';
@@ -18,6 +19,10 @@ export default function Page() {
       title="Inferred Segments — how it works"
       lede="Inferred Segments tells you, for each segment you share with this match, whether you have other tagged matches who corroborate the same chromosomal region from the same side of your family. The unique segments are the ones where this match is your only data point — the irreplaceable ones."
     >
+      <InfoCallout variant="warning" title="Coming soon">
+        Inferred Segments is in active development and not yet available in the live Genomelink
+        product. The article below describes the planned tool — features may change before launch.
+      </InfoCallout>
       <section>
         <h2 style={sectionTitle}>How we adapted classical ISG</h2>
         <p style={paraStyle}>

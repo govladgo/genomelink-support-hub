@@ -25,6 +25,7 @@ export const NAV_GROUPS: NavGroup[] = [
   {
     id: 'top',
     items: [
+      { slug: 'dnamatch', label: 'DNAMatch basics', toolLabel: 'DNAMatch overview' },
       { slug: 'clusters', label: 'Clusters', toolLabel: 'Clusters tool' },
       { slug: 'dna-painter', label: 'DNA Painter', toolLabel: 'DNA Painter tool' },
       { slug: 'match-hub', label: 'Match Hub', toolLabel: 'Match Hub tool' },

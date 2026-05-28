@@ -43,23 +43,23 @@ export default function Page() {
       <section style={sectionGroup}>
         <h2 style={h2Style}>Quick start</h2>
         <ol style={orderedList}>
-          <li>Pick a cluster — hit &ldquo;Paint&rdquo; to paint everyone in it at once.</li>
           <li>
-            Merging imports — when you import matches that are already painted, choose Replace to
-            swap their segments or Add to keep both sources side-by-side.
+            From DNA Matches → Tools, click <strong>Open Painter</strong>. Then{' '}
+            <strong>+ NEW CANVAS</strong> to start a fresh chromosome map.
           </li>
           <li>
-            Or go match by match — enter Paint Mode, hover to preview, click &ldquo;Paint&rdquo; to
-            add.
+            Name the canvas, then choose how to import: <strong>Select all matches</strong> (paints
+            everyone in your match list) or <strong>Select a cluster</strong> (paints just the
+            members of a clustering run).
           </li>
           <li>
             Explore overlaps — orange triangle badges mark where 3+ matches overlap (triangulation).
+            Click one to open the Overlapping Segments panel.
           </li>
-          <li>Click any segment — for chromosome position, size in cM, and more.</li>
+          <li>Click any segment for chromosome position, size in cM, and source info.</li>
           <li>
-            Check the source — each segment is tagged with where it came from (Genomelink Cluster,
-            Imported from MyHeritage, etc.). You&apos;ll see the label in the sidebar, tooltip, and
-            segment detail.
+            Add more matches later with <strong>PAINT MODE</strong> — pick individuals from the
+            sidebar, or paste segment data directly with <strong>+ Upload Segments</strong>.
           </li>
           <li>
             Unknown-side segments — segments without a known side appear as hatched bars. Click any
@@ -80,22 +80,22 @@ export default function Page() {
               { id: 'long-term', label: 'Your canvas is a long-term project' },
               { id: 'canvas-management', label: 'Canvas management' },
               { id: 'chromosome-map', label: 'The chromosome map' },
-              { id: 'three-ways', label: 'Three ways to import matches' },
-              { id: 'replace-vs-add', label: 'Replace vs. Add merge modes' },
+              { id: 'import-flow', label: 'Importing matches' },
+              { id: 'paint-mode', label: 'Paint Mode' },
               { id: 'segments', label: 'Working with segments' },
+              { id: 'overlapping', label: 'Overlapping Segments modal' },
               { id: 'triangulation', label: 'Triangulation' },
               { id: 'parameters', label: 'Parameters & filtering' },
-              { id: 'source-tracking', label: 'Source tracking' },
             ],
           },
           {
             heading: 'Tools & reference',
             entries: [
+              { id: 'source-tracking', label: 'Source tracking' },
               { id: 'exporting', label: 'Exporting your work' },
               { id: 'undo-redo', label: 'Undo & redo' },
               { id: 'shortcuts', label: 'Keyboard shortcuts' },
               { id: 'responsibility', label: 'Your data, your responsibility' },
-              { id: 'irreversible', label: 'Irreversible actions' },
               { id: 'cm', label: 'Understanding cM & relationships' },
               { id: 'workflow', label: 'Workflow tips' },
               { id: 'glossary', label: 'Glossary' },
@@ -132,19 +132,23 @@ export default function Page() {
         </p>
         <ul style={orderedList}>
           <li>
-            Create a canvas from the My Canvases page. If you leave the name blank, it defaults to
-            &ldquo;Canvas&rdquo; plus today&apos;s date. You can always rename it later.
-          </li>
-          <li>Rename a canvas by clicking its name on the canvas card in My Canvases.</li>
-          <li>
-            Delete a canvas via the menu on the canvas card. A confirmation dialog appears, but once
-            you confirm, the canvas and all of its segments, import history, and undo snapshots are
-            permanently erased.
+            Create a canvas from the My Canvases page with <strong>+ NEW CANVAS</strong>. Name it
+            during creation (defaults to &ldquo;Canvas&rdquo; + today&apos;s date if you leave the
+            field blank).
           </li>
           <li>
-            <strong>Storage limit</strong> — there is no hard limit on the number of canvases, but
-            all data is stored in your browser&apos;s localStorage (typically 5–10 MB). Very large
-            canvases may cause older undo snapshots to be evicted sooner.
+            Each canvas card on the My Canvases list shows the canvas name, segment count, match
+            count, last-saved date, and an <strong>OPEN CANVAS</strong> action.
+          </li>
+          <li>
+            Delete a canvas via the kebab menu on the canvas card. A confirmation dialog appears,
+            but once you confirm, the canvas and all of its segments, import history, and undo
+            snapshots are permanently erased.
+          </li>
+          <li>
+            <strong>Storage limit</strong> — all data is stored in your browser&apos;s localStorage
+            (typically 5–10 MB). Very large canvases may cause older undo snapshots to be evicted
+            sooner.
           </li>
         </ul>
         <InfoCallout variant="warning" title="Deleting a canvas is permanent">
@@ -156,62 +160,143 @@ export default function Page() {
       <section id="chromosome-map" style={sectionGroup}>
         <h2 style={h2Style}>The chromosome map</h2>
         <p style={bodyText}>
-          The canvas displays 22 autosomes as horizontal bars. Chromosome 1 is the longest (~286 cM)
-          and 22 is the shortest (~74 cM). Each bar is split into a paternal (top, blue tones) and
-          maternal (bottom, orange tones) half. Painted segments appear as coloured blocks
-          positioned by base-pair coordinates; unknown-side segments render as hatched purple bars
-          spanning the full height. When three or more painted matches overlap, an orange
-          triangulation triangle appears above (paternal) or below (maternal) the bar.
+          The canvas displays all 22 autosomes as horizontal bars. Each bar is split into a paternal
+          (top, blue tones) and maternal (bottom, orange tones) half. Painted segments appear as
+          coloured blocks positioned by base-pair coordinates; unknown-side segments render as
+          hatched bars; overlapping segments show in pink. When three or more painted matches
+          overlap at the same region, a numbered orange triangle badge appears on the bar (the
+          number = how many matches overlap there).
         </p>
         <p style={bodyText}>
-          A stats bar above the map shows the count of matches painted, total segments, and total cM
-          in real time. The Parameters panel sits above the map and exposes the cM threshold and
-          cluster-visibility pills.
-        </p>
-      </section>
-
-      <section id="three-ways" style={sectionGroup}>
-        <h2 style={h2Style}>Three ways to import matches</h2>
-        <p style={bodyText}>
-          There are three paths to get DNA segments onto your canvas, each suited to a different
-          stage of research.
-        </p>
-
-        <h3 style={h3Style}>1. Import from Cluster</h3>
-        <p style={bodyText}>
-          Select a Genomelink cluster analysis run, choose which clusters to bring in, and paint
-          everyone in those clusters in a single operation. This is the fastest way to get a broad
-          initial painting. Each imported segment is tagged with its cluster source so you can
-          always trace where it came from. You can import multiple cluster runs into the same canvas
-          over time.
-        </p>
-
-        <h3 style={h3Style}>2. Paste / Upload segments</h3>
-        <p style={bodyText}>
-          Paste tabular segment data directly or upload a CSV file. The provider dropdown lets you
-          select the source format: 23andMe, MyHeritage, Ancestry, FTDNA, GEDmatch, or Other (custom
-          label). The parser auto-detects column formats. Required columns: chromosome, start
-          position, end position, and cM. SNPs and match name are optional — if missing, segments
-          are labeled &ldquo;Unknown Match.&rdquo;
-        </p>
-
-        <h3 style={h3Style}>3. Match-by-match Paint Mode</h3>
-        <p style={bodyText}>
-          Toggle Paint Mode to open the sidebar listing all your DNA matches. Hover to preview —
-          hovering a match in the sidebar shows semi-transparent preview segments on the map, so
-          you can see exactly where they&apos;ll land before committing. Paint / Unpaint adds or
-          removes a single match with one click. Paint All / Unpaint All are bulk actions.
+          A stats line above the map shows three live counters: <strong>matches painted</strong>,
+          total <strong>segments</strong>, and total <strong>cM</strong> across the canvas. A
+          legend on the right names the four segment types (Top = Paternal, Bottom = Maternal,
+          Unknown, Overlapping).
         </p>
       </section>
 
-      <section id="replace-vs-add" style={sectionGroup}>
-        <h2 style={h2Style}>Replace vs. Add merge modes</h2>
+      <section id="import-flow" style={sectionGroup}>
+        <h2 style={h2Style}>Importing matches</h2>
         <p style={bodyText}>
-          When an import contains already-painted matches, the import modal presents two options.{' '}
-          <strong>Replace</strong> removes existing segments and substitutes the incoming data — use
-          when the new source is more accurate or more recent. <strong>Add</strong> keeps both sets
-          side by side, each tagged with source — use when combining results from multiple testing
-          companies for the same match.
+          When you create a new canvas, DNA Painter walks you through three modal steps to bring
+          matches in. After the canvas exists you can always add more later via Paint Mode (covered
+          next).
+        </p>
+
+        <h3 style={h3Style}>Step 1 · Name your canvas</h3>
+        <p style={bodyText}>
+          Pick a research-question-shaped name (e.g. &ldquo;Mom&apos;s side&rdquo; or &ldquo;Smith
+          surname cluster&rdquo;). The blurb at the bottom of the modal reminds you: <em>a canvas
+          is your personal chromosome map. Paint DNA matches, import from clusters, or paste
+          segment data from other testing platforms.</em>
+        </p>
+
+        <h3 style={h3Style}>Step 2 · Import from DNA matches</h3>
+        <p style={bodyText}>
+          Two radio choices:
+        </p>
+        <ul style={orderedList}>
+          <li>
+            <strong>Select all matches</strong> — paints everyone on your DNA Matches list
+            (typically a few thousand). Useful for getting a complete chromosome view in one go,
+            though the canvas will be busy.
+          </li>
+          <li>
+            <strong>Select a cluster</strong> — pick from a dropdown of your saved clustering runs
+            (Shared Match or Shared Segment, by preset name). Far more focused than &ldquo;all
+            matches&rdquo;, especially when you want to paint just one branch of your tree.
+          </li>
+        </ul>
+
+        <h3 style={h3Style}>Step 3 · Select clusters (if you picked a cluster run)</h3>
+        <p style={bodyText}>
+          If you chose a cluster run in Step 2, the next modal lists every cluster in that run with
+          checkboxes — Cluster name, match count, and average cM. Toggle individual clusters or use
+          <strong> Select all clusters</strong>. Two CTAs at the bottom: <strong>IMPORT ALL</strong>{' '}
+          (everything in the run) or <strong>IMPORT SELECTED</strong> (just the checked clusters).
+          The button label shows the total match count so you know what you&apos;re committing to.
+        </p>
+
+        <InfoCallout title="Re-importing is safe">
+          Importing the same matches again won&apos;t create duplicates — DNA Painter recognises
+          previously-painted matches by ID and refreshes their segments rather than stacking. To
+          remove matches from the canvas, use UNPAINT in Paint Mode rather than re-importing.
+        </InfoCallout>
+      </section>
+
+      <section id="paint-mode" style={sectionGroup}>
+        <h2 style={h2Style}>Paint Mode</h2>
+        <p style={bodyText}>
+          Click <strong>PAINT MODE</strong> in the Parameters panel to open a sidebar on the right
+          of the canvas listing every match you can paint. Paint Mode is how you add matches one at
+          a time, change which matches are visible, or paste raw segment data from outside
+          Genomelink.
+        </p>
+
+        <h3 style={h3Style}>Sidebar layout</h3>
+        <ul style={orderedList}>
+          <li>
+            <strong>+ Upload Segments</strong> — opens the Paste / Upload modal (covered below).
+          </li>
+          <li>
+            <strong>Search matches</strong> — type-ahead filter on match name.
+          </li>
+          <li>
+            <strong>FILTER BY SOURCE</strong> chip strip — toggle which testing-company sources are
+            visible (23andMe, Ancestry, MyHeritage, Other). Click a chip to hide its matches without
+            unpainting them.
+          </li>
+          <li>
+            <strong>By cM / By Name</strong> sort toggle.
+          </li>
+          <li>
+            <strong>Match list</strong> — avatar + name + vendor badge + cM + segment count for
+            every match. Each row has a checkbox: tick to paint, untick to unpaint.
+          </li>
+          <li>
+            <strong>PAINT ALL</strong> / <strong>UNPAINT ALL</strong> bulk actions on top of the
+            sidebar.
+          </li>
+          <li>
+            <strong>EXIT PAINT MODE</strong> button in the Parameters panel closes the sidebar and
+            returns the canvas to its standard view.
+          </li>
+        </ul>
+
+        <h3 style={h3Style}>+ Upload Segments — Paste / Upload modal</h3>
+        <p style={bodyText}>
+          Use this to add segment data from outside Genomelink (a triangulation export from FTDNA,
+          a GEDmatch one-to-one comparison, a MyHeritage chromosome browser CSV). The modal accepts:
+        </p>
+        <ul style={orderedList}>
+          <li>
+            <strong>FTDNA</strong> — tab-separated with columns: Name, Chromosome, Start Location,
+            End Location, Centimorgans, Matching SNPs.
+          </li>
+          <li>
+            <strong>GEDmatch</strong> — columns include Chr, B37 Start, B37 End, cM, SNPs.
+          </li>
+          <li>
+            <strong>MyHeritage</strong> — columns include Name, Chromosome, Start point, End point,
+            Centimorgans, SNPs.
+          </li>
+          <li>
+            <strong>Generic CSV / TSV</strong> — any file with recognisable chromosome, start, end,
+            and cM columns.
+          </li>
+        </ul>
+        <p style={bodyText}>
+          The modal shows a FTDNA-format example in a pre block so you know what to paste. The
+          parser auto-detects column formats; SNPs and match name are optional. Pasted data with no
+          match name labels segments as &ldquo;Unknown Match&rdquo;.
+        </p>
+
+        <h3 style={h3Style}>Preview Import — confirm before painting</h3>
+        <p style={bodyText}>
+          After you paste or upload, a <strong>Preview Import</strong> modal shows the parsed
+          segments as a table — Match Name, Chr, Start, End, cM, SNPs — with a note like &ldquo;Parsed
+          6 segments from 3 matches.&rdquo; Confirm with <strong>IMPORT N SEGMENTS</strong> or
+          discard with <strong>CANCEL</strong>. Nothing is added to the canvas until you confirm.
         </p>
       </section>
 
@@ -230,13 +315,37 @@ export default function Page() {
             <strong>Hover tooltip</strong> shows match name, cM value, and source label.
           </li>
           <li>
-            <strong>Assigning sides:</strong> unknown-side segments appear as hatched purple bars;
-            assignment moves the segment to its correct half.
+            <strong>Assigning sides:</strong> unknown-side segments appear as hatched bars;
+            assignment moves the segment to its correct half (paternal top or maternal bottom).
           </li>
         </ul>
         <p style={bodyText}>
           A canvas full of &ldquo;unknown&rdquo; segments looks busy but tells you less than one
           where sides are assigned.
+        </p>
+      </section>
+
+      <section id="overlapping" style={sectionGroup}>
+        <h2 style={h2Style}>Overlapping Segments modal</h2>
+        <p style={bodyText}>
+          When multiple matches cover the same chromosomal region, the segments stack visually and
+          the bar gets a numbered triangle badge (the number = how many matches overlap there).
+          Click the badge — or any segment in the overlap zone — to open the{' '}
+          <strong>Overlapping Segments</strong> modal.
+        </p>
+        <p style={bodyText}>
+          The modal lists every match contributing to that overlap, with:
+        </p>
+        <ul style={orderedList}>
+          <li>Match name + the cluster they belong to (e.g. &ldquo;Cluster 8&rdquo;).</li>
+          <li>Side assignment (Unknown / Paternal / Maternal).</li>
+          <li>The cM contribution from each match.</li>
+        </ul>
+        <p style={bodyText}>
+          Overlapping regions are some of the strongest evidence you can paint — they suggest the
+          contributing matches share a common ancestor at that exact chromosomal position. If most
+          overlapping matches belong to the same cluster, that&apos;s a strong signal the cluster
+          really does descend from a single branch.
         </p>
       </section>
 
@@ -248,8 +357,8 @@ export default function Page() {
         </p>
         <ul style={orderedList}>
           <li>The app automatically detects regions where 3+ segments overlap on the same chromosome.</li>
-          <li>Orange triangle badges mark these regions (above the bar for paternal, below for maternal).</li>
-          <li>Clicking any orange triangle opens the Triangulation panel showing all overlapping matches.</li>
+          <li>Orange triangle badges with the overlap count appear on the bar where they overlap.</li>
+          <li>Clicking any triangle (or any segment in the overlap zone) opens the Overlapping Segments modal.</li>
         </ul>
         <InfoCallout title="Why it matters">
           Triangulated segments are the strongest evidence you have for placing a segment on a
@@ -262,26 +371,60 @@ export default function Page() {
       <section id="parameters" style={sectionGroup}>
         <h2 style={h2Style}>Parameters &amp; filtering</h2>
         <p style={bodyText}>
-          The Parameters panel exposes a <strong>cM threshold slider</strong> (range 1–30 cM,
-          default 7) that hides segments below the selected size — non-destructive, you can change
-          it any time. Segments smaller than ~7 cM are frequently &ldquo;identical by state&rdquo;
-          (IBS), meaning they look shared but are actually just common in the population. The{' '}
-          <strong>cluster filter pills</strong> let you toggle specific cluster visibility. Live
-          stats update in real time as you adjust filters.
+          The Parameters panel above the chromosome map exposes:
         </p>
+        <ul style={orderedList}>
+          <li>
+            <strong>cM threshold slider</strong> (default 7 cM, range up to 30 cM) — hides segments
+            below the selected size. Non-destructive; segments come back when you raise it. Below
+            ~7 cM, many segments are &ldquo;identical by state&rdquo; (IBS) rather than IBD, so the
+            default filter cleans up the canvas without losing genealogical signal.
+          </li>
+          <li>
+            <strong>Showing matches ≥ N cM</strong> indicator next to the slider.
+          </li>
+          <li>
+            <strong>Stats line</strong> — matches painted / segments / total cM, updates live.
+          </li>
+          <li>
+            <strong>Legend</strong> — Top = Paternal (blue), Bottom = Maternal (orange), Unknown
+            (hatched), Overlapping (pink).
+          </li>
+          <li>
+            <strong>PAINT MODE</strong> button — opens the sidebar covered above.
+          </li>
+        </ul>
         <p style={bodyText}>
-          Start with the default 7 cM threshold. Once your canvas gets crowded, raise it to 15 or 20
-          cM.
+          Start with the default 7 cM. Once your canvas gets crowded, raise the threshold to 15 or
+          20 cM. To filter by cluster, use the source filter inside Paint Mode (which respects the
+          source tag on each painted segment) rather than the Parameters panel.
         </p>
       </section>
 
       <section id="source-tracking" style={sectionGroup}>
         <h2 style={h2Style}>Source tracking</h2>
         <p style={bodyText}>
-          Every segment carries permanent origin information. Source types include: Genomelink
-          Cluster, Imported from MyHeritage, Imported from Ancestry, Imported from FTDNA, Imported
-          from GEDmatch, Imported from 23andMe, Added Manually, and any custom label you supplied.
-          Source info appears in the sidebar match subtitle, hover tooltip, and segment detail panel.
+          Every painted segment carries a permanent source tag. Possible values:
+        </p>
+        <ul style={orderedList}>
+          <li>
+            <strong>Genomelink cluster</strong> — segment came from a clustering run import. The
+            match&apos;s vendor (23andMe, Ancestry, MyHeritage, FTDNA, GEDmatch) flows through with
+            it, which is what the source filter in Paint Mode actually filters on.
+          </li>
+          <li>
+            <strong>Imported from FTDNA / GEDmatch / MyHeritage</strong> — segment came from a Paste
+            / Upload of that vendor&apos;s chromosome browser format.
+          </li>
+          <li>
+            <strong>Imported from CSV/TSV</strong> — segment came from a generic file import. You
+            can label these with a custom source string at upload time.
+          </li>
+        </ul>
+        <p style={bodyText}>
+          Source info appears in the sidebar match row, hover tooltip, and segment detail drawer.
+          The source filter in Paint Mode reads the vendor tag and lets you toggle 23andMe /
+          Ancestry / MyHeritage / Other visibility.
         </p>
       </section>
 
@@ -289,15 +432,14 @@ export default function Page() {
         <h2 style={h2Style}>Exporting your work</h2>
         <h3 style={h3Style}>PNG image download</h3>
         <p style={bodyText}>
-          Captures the full canvas (name, stats bar, legend, chromosome map) at 2× resolution. File
-          naming: <code style={code}>dna-painter-&lt;canvas-name&gt;-&lt;date&gt;.png</code>. Use
+          Captures the full canvas (name, stats bar, legend, chromosome map) at 2× resolution. Use
           for attaching to research notes, sharing with relatives, posting in forums, or creating a
           visual record.
         </p>
         <h3 style={h3Style}>CSV data export</h3>
         <p style={bodyText}>
-          Columns: chromosome, startBp, endBp, cM, snps, matchName, groupId, side. Can be
-          re-imported via Paste/Upload to rebuild the canvas. Use for spreadsheet analysis,
+          Columns: chromosome, startBp, endBp, cM, snps, matchName, source, side. Can be re-imported
+          via Paste/Upload to rebuild the canvas in another browser. Use for spreadsheet analysis,
           importing into other genealogy tools, or as a machine-readable backup.
         </p>
         <InfoCallout variant="warning" title="Exports are your only backup">
@@ -311,9 +453,8 @@ export default function Page() {
         <p style={bodyText}>
           Undo with <code style={code}>Cmd/Ctrl + Z</code>; redo with{' '}
           <code style={code}>Cmd/Ctrl + Shift + Z</code> or <code style={code}>Cmd/Ctrl + Y</code>.
-          Undoable actions: importing segments (including Replace mode), painting / unpainting a
-          single match, Unpaint All, changing segment side (paternal / maternal / unknown), changing
-          segment group assignment.
+          Undoable actions: importing segments, painting / unpainting a single match, Unpaint All,
+          changing segment side (paternal / maternal / unknown).
         </p>
         <p style={bodyText}>
           Limitations: max 20 snapshots (oldest are evicted), history clears upon navigation, and
@@ -356,17 +497,6 @@ export default function Page() {
         </InfoCallout>
       </section>
 
-      <section id="irreversible" style={sectionGroup}>
-        <h2 style={h2Style}>Irreversible actions</h2>
-        <p style={bodyText}>
-          Most actions are undoable, but these cannot be recovered: deleting a canvas, clearing
-          browser data for the site, switching browsers or devices, undo history limits (20
-          snapshots only). <strong>What is undoable:</strong> Replace on import, Unpaint single
-          match, Unpaint All, side assignment changes, group assignment changes — all reversible
-          with Cmd/Ctrl + Z while the canvas is open.
-        </p>
-      </section>
-
       <section id="cm" style={sectionGroup}>
         <h2 style={h2Style}>Understanding cM &amp; relationships</h2>
         <p style={bodyText}>
@@ -404,16 +534,19 @@ export default function Page() {
         <p style={bodyText}>
           Create a separate canvas for each research question — &ldquo;Paternal grandfather&apos;s
           line,&rdquo; &ldquo;Unknown match cluster from 23andMe,&rdquo; &ldquo;Mom&apos;s Ancestry
-          results,&rdquo; &ldquo;Smith family — maternal side.&rdquo; Focused canvases are easier to
-          read, easier to share, and easier to recover from mistakes.
+          results.&rdquo; Focused canvases are easier to read, easier to share, and easier to
+          recover from mistakes.
         </p>
         <h3 style={h3Style}>Suggested workflow</h3>
         <ol style={orderedList}>
-          <li>Create and name canvas for the research question.</li>
-          <li>Import clusters for a broad initial painting.</li>
+          <li>Create + name a canvas for the research question.</li>
+          <li>
+            Import a focused cluster (from <Link href="/clusters">Clusters</Link>) for a broad
+            initial painting.
+          </li>
           <li>Switch to Paint Mode and add individual matches identified through your own research.</li>
           <li>Adjust the cM threshold to filter noise.</li>
-          <li>Look for orange triangulation triangles.</li>
+          <li>Look for orange triangulation triangles — click them to inspect overlaps.</li>
           <li>Right-click unknown-side segments to assign Paternal or Maternal.</li>
           <li>Export PNG and CSV regularly as backup.</li>
         </ol>
@@ -428,8 +561,8 @@ export default function Page() {
             connections.
           </li>
           <li>
-            <strong>Segments on the same side</strong> from unrelated matches: likely the same
-            ancestral line.
+            <strong>Same-cluster overlaps</strong>: when most matches at a region belong to the
+            same cluster, that cluster very likely traces to a single branch.
           </li>
         </ul>
       </section>
@@ -448,8 +581,8 @@ export default function Page() {
           <dt style={dt}>Segment</dt><dd style={dd}>Contiguous DNA stretch shared between you and a match — chromosome, start, end, cM.</dd>
           <dt style={dt}>Side</dt><dd style={dd}>Paternal, maternal, or unknown. Determines vertical placement on the chromosome bar.</dd>
           <dt style={dt}>SNP</dt><dd style={dd}>Single Nucleotide Polymorphism — individual DNA positions that vary between people.</dd>
-          <dt style={dt}>Source</dt><dd style={dd}>Testing company or method producing the segment (23andMe, Genomelink Cluster, etc.). Every segment is permanently tagged.</dd>
-          <dt style={dt}>Triangulation</dt><dd style={dd}>3+ matches from different people share overlapping segments on the same chromosome region. Marked with orange triangle badges.</dd>
+          <dt style={dt}>Source</dt><dd style={dd}>Where the segment came from (Genomelink Cluster, FTDNA paste, etc.). Every segment is permanently tagged.</dd>
+          <dt style={dt}>Triangulation</dt><dd style={dd}>3+ matches from different people share overlapping segments on the same chromosome region. Marked with numbered orange triangles.</dd>
         </dl>
       </section>
 
@@ -496,13 +629,11 @@ const th: React.CSSProperties = {
   color: 'var(--gl-color-primary-dark)',
   fontWeight: 600,
   padding: '10px 12px',
-
 };
 const td: React.CSSProperties = {
   padding: '10px 12px',
   color: 'var(--gl-color-primary-dark)',
   lineHeight: '20px',
-
 };
 const code: React.CSSProperties = {
   background: 'var(--gl-color-gray-light)',

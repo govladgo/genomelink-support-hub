@@ -18,6 +18,11 @@ export default function Page() {
       title="How to use Match Hub"
       lede="One unified inbox for all your DNA matches across 23andMe, Ancestry, FTDNA, MyHeritage, and GEDmatch — automatically deduplicated."
     >
+      <InfoCallout variant="warning" title="Coming soon">
+        Match Hub is in active development and not yet available in the live Genomelink product.
+        The article below describes the planned tool — features may change before launch.
+      </InfoCallout>
+
       <section>
         <p style={bodyText}>
           The same biological match often appears on multiple vendors with slightly different cM and

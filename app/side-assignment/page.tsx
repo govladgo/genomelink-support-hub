@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ContentLayout } from '@/components/ContentLayout';
+import { InfoCallout } from '@/components/InfoCallout';
 import { findNavItem } from '@/lib/nav';
 import { ONE_ON_ONE_URL } from '@/lib/toolUrls';
 import { LineagePill } from '@/components/badges';
@@ -18,6 +19,11 @@ export default function Page() {
       title="Side Assignment Inspector — how it works"
       lede={`"Maternal or paternal?" is the most common first-cut filter a genealogist applies to a new match. This tool answers it without requiring a parent kit, by clustering shared-segment overlap against sides you've already tagged elsewhere in your match list.`}
     >
+      <InfoCallout variant="warning" title="Coming soon">
+        Side Assignment Inspector is in active development and not yet available in the live
+        Genomelink product. The article below describes the planned tool — features may change
+        before launch.
+      </InfoCallout>
       <section>
         <h2 style={sectionTitle}>The bootstrap workflow</h2>
         <ol style={listStyle}>

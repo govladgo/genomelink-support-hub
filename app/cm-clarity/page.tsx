@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ContentLayout } from '@/components/ContentLayout';
+import { InfoCallout } from '@/components/InfoCallout';
 import { findNavItem } from '@/lib/nav';
 import { ONE_ON_ONE_URL } from '@/lib/toolUrls';
 
@@ -17,6 +18,14 @@ export default function Page() {
       title="How to use cM Clarity"
       lede="Predict the relationship behind a shared centiMorgan value, with segment-level analysis and population-aware adjustments."
     >
+      <InfoCallout variant="warning" title="Coming soon">
+        cM Clarity is in active development and not yet available in the live Genomelink product.
+        The article below describes the planned tool — features may change before launch. The live{' '}
+        <Link href="/dnamatch">match profile</Link> already shows a basic relationship label (e.g.
+        &ldquo;6th Cousin or Beyond&rdquo;) based on shared cM; cM Clarity is the deeper analysis
+        layer that will come later.
+      </InfoCallout>
+
       <section style={sectionGroup}>
         <p style={bodyText}>
           When DNA testing companies tell you a match is your &ldquo;3rd cousin&rdquo; or &ldquo;6th cousin or
