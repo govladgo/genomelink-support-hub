@@ -159,9 +159,10 @@ export default function Page() {
             Eastern European ancestry&rdquo;).
           </li>
           <li>
-            <strong>Cluster Summary</strong> — a Cluster Strength gauge (0–100), largest /
-            smallest cluster stats, and a &ldquo;How much DNA you share&rdquo; histogram bucketed by
-            cM range.
+            <strong>Cluster Summary</strong> — a Clustering Strength gauge, header counters
+            (matches grouped, clusters, unclustered, average cM), Largest / Smallest cluster
+            callouts, and a &ldquo;How much DNA you share with your matches&rdquo; histogram
+            bucketed by cM range.
           </li>
           <li>
             <strong>Cluster Details</strong> — per-cluster card showing members, locations (when
@@ -189,8 +190,10 @@ export default function Page() {
             shared-cM distribution. Suggests options to recover them in a follow-up run.
           </li>
           <li>
-            <strong>Cross-Run Comparison</strong> — if you have multiple runs, side-by-side
-            comparison and a stability matrix showing which clusters held up across configurations.
+            <strong>Cross-Run Comparison</strong> — pick two saved runs (e.g. a Shared Match
+            Clustering run vs a Segment-Based Clustering run) and compare them side by side: a
+            match-stability percentage plus a comparison-visualisation heatmap showing which
+            clusters held up across the two configurations.
           </li>
           <li>
             <strong>Glossary</strong> — definitions for cM, IBD, Triangulation, SNP, and other

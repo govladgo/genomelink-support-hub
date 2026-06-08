@@ -73,17 +73,16 @@ export default function Page() {
           </li>
           <li>
             <strong>Min shared cM slider</strong> — only show matches above the threshold (default
-            7 cM). Useful for pruning the long tail of distant matches.
+            7 cM); a &ldquo;Showing matches ≥ N cM&rdquo; readout sits beneath it. Useful for
+            pruning the long tail of distant matches.
           </li>
           <li>
-            <strong>Stats dropdown</strong> — switch which metric drives node sizing.
+            <strong>Stats</strong> — a collapsible panel of network statistics for the current view.
           </li>
           <li>
             <strong>Edge Thickness (cM)</strong> — control the cM range that maps to edge weight.
-          </li>
-          <li>
-            <strong>Triangulated</strong> toggle — highlight edges that have been triangulated (a
-            segment confirmed across three or more people).
+            Triangulated connections (a segment confirmed across three or more people) are drawn as
+            dashed edges, called out in the legend below the slider.
           </li>
         </ul>
       </section>
@@ -119,9 +118,10 @@ export default function Page() {
             will overstate closeness.
           </li>
           <li>
-            <strong>Triangulation Groups</strong> — lists groups where three or more members all
-            share DNA with each other (suggesting a common ancestor), with each member&apos;s name
-            and cluster.
+            <strong>Triangulation Groups</strong> — a long list of groups where three or more
+            members all share DNA with each other (suggesting a common ancestor). Each group shows
+            its members (with the cluster each belongs to) and the average cM shared across the
+            group.
           </li>
         </ul>
       </section>
