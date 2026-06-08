@@ -14,8 +14,8 @@ export default function Page() {
   return (
     <ContentLayout
       eyebrow={NAV.toolLabel}
-      title="DNAMatch basics"
-      lede="DNA Matches is your inbox of genetic relatives — people who share enough DNA with you that you and they likely descend from a common ancestor. This article walks through the three live surfaces that sit under the DNAMatch umbrella: the matches list, lineage groups, and each match's profile."
+      title="DNAMatch"
+      lede="DNA Matches is your inbox of genetic relatives — people who share enough DNA with you that you and they likely descend from a common ancestor. This article walks through the core surfaces that sit under the DNAMatch umbrella: the matches list, match list cleanup, lineage groups, and each match's profile."
     >
       <section>
         <h2 style={sectionTitle}>The DNA Matches list</h2>
@@ -51,6 +51,57 @@ export default function Page() {
           and the <strong>Tools</strong> grid — three large cards (Network Graph, Clusters, DNA
           Painter) that operate across your whole match list rather than a single match.
         </p>
+      </section>
+
+      <section>
+        <h2 style={sectionTitle}>Match list cleanup (review duplicates)</h2>
+        <p style={paraStyle}>
+          Many people test with — or upload to — more than one company, so the same biological
+          relative can appear in your list two or three times: once as a 23andMe match, again as a
+          MyHeritage match, and so on. Each copy carries slightly different cM and segment data.
+          Left alone, these duplicates inflate your match count and distort clustering.
+        </p>
+        <p style={paraStyle}>
+          <strong>Match list cleanup</strong> (the <strong>Review duplicates</strong> panel in the
+          list sidebar) finds those cross-provider duplicates and lets you merge the records that
+          belong to one person. The button shows a live count of suspected duplicate records to
+          review.
+        </p>
+        <h3 style={subSectionTitle}>How duplicates are detected</h3>
+        <p style={paraStyle}>
+          Records are grouped by <strong>shared cM</strong> first (two records within ±5% of each
+          other, both above a minimum cM floor), then confirmed by <strong>segment overlap</strong>.
+          Names are shown for context but never used to group — the same person is routinely entered
+          as &ldquo;Birgit Pettersen&rdquo;, &ldquo;B. Pettersen&rdquo;, and &ldquo;Brigitte
+          P.&rdquo; across vendors, so a different spelling never blocks a merge, and a matching
+          name never forces one. Family members (siblings, cousins) sit in similar cM brackets but
+          their segment positions differ, so they don&apos;t get grouped.
+        </p>
+        <h3 style={subSectionTitle}>Reviewing a duplicate group</h3>
+        <ul style={listStyle}>
+          <li>
+            Each group has one <strong>primary</strong> record (the one to keep — chosen by highest
+            cM, then most segments, then vendor preference) and one or more sibling records.
+          </li>
+          <li>
+            <strong>Merge</strong> — confirm a sibling is the same person; its records collapse into
+            the primary and your effective match count drops by one.
+          </li>
+          <li>
+            <strong>Dismiss</strong> — confirm a sibling is a different person; it stays as its own
+            match and won&apos;t be suggested again.
+          </li>
+          <li>
+            <strong>Undo</strong> — reverse either decision later; nothing here is destructive.
+          </li>
+        </ul>
+        <InfoCallout title="Clean up before you cluster">
+          Merging duplicates first means every downstream tool —{' '}
+          <Link href="/network-graph">Network Graph</Link>,{' '}
+          <Link href="/clusters">Clusters</Link>, and{' '}
+          <Link href="/dna-painter">DNA Painter</Link> — works from a deduplicated list, so each
+          person counts once and the clustering math isn&apos;t skewed by repeats.
+        </InfoCallout>
       </section>
 
       <section>
@@ -141,19 +192,19 @@ export default function Page() {
       <section>
         <h2 style={sectionTitle}>Where to go from here</h2>
         <p style={paraStyle}>
-          DNAMatch basics is the inbox + per-match view. To turn that inbox into a research workflow,
-          switch to the Tools tab and pick one of the three live tools:
+          DNAMatch is the inbox + per-match view. To turn that inbox into a research workflow, switch
+          to the Tools tab and pick one of the three tools:
         </p>
         <ul style={listStyle}>
+          <li>
+            <strong><Link href="/network-graph">Network Graph</Link></strong> — explore how your
+            matches connect to each other as a force-directed network. Best for spotting bridges
+            between branches and measuring endogamy risk.
+          </li>
           <li>
             <strong><Link href="/clusters">Clusters</Link></strong> — group your matches by who they
             also share DNA with, then drill into a cluster report for surname / location / family-line
             signal across the whole group.
-          </li>
-          <li>
-            <strong><Link href="/clusters">Network Graph</Link></strong> — same clustering math, but
-            visualised as a force-directed network. Best for spotting bridges between branches and
-            measuring endogamy risk.
           </li>
           <li>
             <strong><Link href="/dna-painter">DNA Painter</Link></strong> — paint a cluster onto a

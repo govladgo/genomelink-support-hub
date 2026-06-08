@@ -17,7 +17,7 @@ export default function Page() {
     <ContentLayout
       eyebrow={NAV.toolLabel}
       title="How to use DNA Painter"
-      lede="A step-by-step guide to painting your DNA matches onto a chromosome map."
+      lede="View your DNA matches on a chromosome map to identify shared genome segments with relatives — and which parent's side each segment came from."
     >
       <section style={sectionGroup}>
         <p style={bodyText}>

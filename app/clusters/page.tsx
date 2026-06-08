@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ContentLayout } from '@/components/ContentLayout';
 import { InfoCallout } from '@/components/InfoCallout';
 import { findNavItem } from '@/lib/nav';
-import { CLUSTERS_URL, NETWORK_GRAPH_URL, DNA_PAINTER_URL } from '@/lib/toolUrls';
+import { CLUSTERS_URL, DNA_PAINTER_URL } from '@/lib/toolUrls';
 
 const NAV = findNavItem('clusters')!;
 
@@ -16,7 +16,7 @@ export default function Page() {
     <ContentLayout
       eyebrow={NAV.toolLabel}
       title="How to use Clusters"
-      lede="Clustering groups your DNA matches by who they also share DNA with — uncovering branches of your family tree without needing a tree at all. Two live tools surface the same clustering math in different shapes: Clusters (configure runs + read a deep per-cluster report) and Network Graph (force-directed visualisation of the network)."
+      lede="Group your matches by genetic similarity. Identify which matches belong together across family lines — uncovering branches of your tree without needing a tree at all."
     >
       <section>
         <h2 style={sectionTitle}>What is a cluster?</h2>
@@ -27,10 +27,10 @@ export default function Page() {
           know whose branch it is yet.
         </p>
         <p style={paraStyle}>
-          Two separate tools at the DNA Matches → Tools selector consume the same underlying
-          clustering: <strong>Clusters</strong> (configurable runs + reports) and{' '}
-          <strong>Network Graph</strong> (interactive force-directed visualisation). Pick whichever
-          fits the question you&apos;re asking.
+          Clusters is the run-and-report tool: you configure a clustering run, save it, and explore
+          the resulting groups plus a deep per-cluster report. For the same clustering rendered as
+          an interactive visualisation, see the{' '}
+          <Link href="/network-graph">Network Graph</Link> tool.
         </p>
       </section>
 
@@ -200,112 +200,41 @@ export default function Page() {
       </section>
 
       <section>
-        <h2 style={sectionTitle}>The Network Graph tool</h2>
+        <h2 style={sectionTitle}>How Clusters fits the other tools</h2>
         <p style={paraStyle}>
-          Network Graph is a separate tool that reads the same clustering result and renders it as
-          a force-directed network. Where Clusters answers &ldquo;what&apos;s in each group&rdquo;,
-          Network Graph answers &ldquo;how do the groups connect to each other across my whole
-          match list&rdquo;.
+          Clusters share their result with the rest of the DNA Match tools. The same clustering you
+          configure here drives:
         </p>
-
-        <h3 style={subSectionTitle}>The visualisation</h3>
-        <p style={paraStyle}>
-          Every match is a coloured node sized by shared cM; every shared-segment connection is an
-          edge with thickness proportional to overlap. Cluster colours match the Clusters tool.
-          Densely-connected clumps usually represent a single branch of your tree; near-isolated
-          nodes are matches who don&apos;t fit anywhere yet.
-        </p>
-        <p style={paraStyle}>
-          Layout toggle: <strong>Force</strong> (organic, physics-driven) vs <strong>Radial</strong>{' '}
-          (clusters arrayed in a wheel). Force is the default; radial is useful when you want to
-          screenshot or compare clusters side-by-side.
-        </p>
-
-        <h3 style={subSectionTitle}>Filters &amp; controls</h3>
         <ul style={listStyle}>
           <li>
-            <strong>Cluster filter</strong> — chip strip with one chip per cluster. Toggle clusters
-            on / off to focus on just the branches you care about.
+            <strong><Link href="/network-graph">Network Graph</Link></strong> — the same clusters
+            rendered as an interactive force-directed network, with structural analysis (bridges,
+            hubs, endogamy risk). Use it for macro-structure; use Clusters for the per-group report.
           </li>
           <li>
-            <strong>Min shared cM slider</strong> — only show matches above the threshold (default
-            7 cM, range up to several thousand). Useful for pruning the long tail.
+            <strong><Link href="/dna-painter">DNA Painter</Link></strong> — its &ldquo;Select a
+            cluster&rdquo; import paints a whole cluster onto a chromosome map in one step, so you
+            can move from &ldquo;these matches group together&rdquo; to &ldquo;here&apos;s the
+            segment evidence&rdquo; without re-selecting matches by hand.
           </li>
           <li>
-            <strong>Stats dropdown</strong> — switch which metric drives node sizing.
-          </li>
-          <li>
-            <strong>Edge Thickness (cM)</strong> — control the cM range that maps to edge weight.
-          </li>
-          <li>
-            <strong>Triangulated</strong> toggle — highlight edges that have been triangulated
-            (segment confirmed across three or more people).
-          </li>
-          <li>
-            <strong>Zoom controls</strong> + percentage indicator + recenter button.
-          </li>
-        </ul>
-
-        <h3 style={subSectionTitle}>Analysis cards (below the graph)</h3>
-        <ul style={listStyle}>
-          <li>
-            <strong>Network Overview</strong> — Total Nodes, Total Edges, Avg Degree, Density,
-            Diameter, Connected Components, Most-Connected node, Cluster count.
-          </li>
-          <li>
-            <strong>Key Individuals</strong> — identifies people who act as bridges or highly
-            connected hubs. Top 5 by Betweenness centrality (bridges) and Top 5 by Degree centrality
-            (hubs), each with their cluster and a percentage score.
-          </li>
-          <li>
-            <strong>Clustering Coefficient</strong> — how tightly connected each cluster is
-            internally and how separated they are from each other. Avg coefficient on a gauge + a
-            per-cluster density bar list.
-          </li>
-          <li>
-            <strong>Endogamy Risk</strong> — detects signs of endogamy (intermarriage within a
-            group) by analysing network density and cross-cluster connections. Risk score 0–100
-            with three supporting metrics: Clustering Coefficient (how densely interconnected close
-            matches are), Cross-Cluster Ratio (how many close-match edges connect different
-            clusters), and a combined score.
-          </li>
-          <li>
-            <strong>Triangulation Groups</strong> — lists triangulated groups (3+ members share DNA
-            with each other), showing each member&apos;s name and cluster.
+            <strong><Link href="/dnamatch">DNAMatch</Link></strong> — lineage tags and side
+            assignments you make on the match list flow into clustering, and cluster membership
+            shows back on each match&apos;s row.
           </li>
         </ul>
       </section>
 
-      <section>
-        <h2 style={sectionTitle}>How the two tools relate</h2>
-        <p style={paraStyle}>
-          Today Clusters and Network Graph live as separate top-level tools at the DNA Matches →
-          Tools selector. They read the same underlying clustering result, so the colours, cluster
-          numbers, and membership match across both views. Tagging a Lineage on a match in one view
-          flows through to the other.
-        </p>
-        <p style={paraStyle}>
-          A third surface — <Link href="/dna-painter">DNA Painter</Link> — consumes cluster data
-          via its &ldquo;Select a cluster&rdquo; import option, so once you&apos;ve identified a
-          meaningful cluster you can paint it onto a chromosome map without re-selecting matches by
-          hand.
-        </p>
-      </section>
-
-      <InfoCallout title="Pick the view that matches your question">
-        Use <strong>Clusters</strong> when you want to read the report, study membership, and follow
-        the Research Action Plan. Use <strong>Network Graph</strong> when you want to see
-        macro-structure, find bridge people, and gauge endogamy risk. Use{' '}
-        <strong>DNA Painter</strong> when you want chromosome-level evidence for a cluster you
-        already trust.
+      <InfoCallout title="Cleaner input, sharper clusters">
+        Before a big clustering run, use <strong>Match list cleanup</strong> on the{' '}
+        <Link href="/dnamatch">DNAMatch</Link> list to merge cross-vendor duplicates. Collapsing the
+        same person&apos;s 23andMe + MyHeritage records into one keeps duplicate nodes from
+        distorting the cluster math.
       </InfoCallout>
 
       <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 12 }}>
         <Link href={CLUSTERS_URL} className="gl-btn gl-btn--primary">
           Open Clusters
-        </Link>
-        <Link href={`${NETWORK_GRAPH_URL}/dna-match/network/graph`} className="gl-btn gl-btn--secondary">
-          Open Network Graph
         </Link>
         <Link href={`${DNA_PAINTER_URL}/painter`} className="gl-btn gl-btn--secondary">
           Paint a cluster

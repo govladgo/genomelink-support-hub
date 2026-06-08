@@ -2,6 +2,7 @@ export interface NavItem {
   slug: string;
   label: string;
   toolLabel: string; // eyebrow text (e.g. "Clusters tool")
+  comingSoon?: boolean; // renders a "Soon" badge in the nav
 }
 
 export interface NavGroup {
@@ -11,24 +12,26 @@ export interface NavGroup {
 }
 
 /**
- * Support Hub IA — 4-product model (SEO restructure 2026-05).
+ * Support Hub IA (revised 2026-05).
  *
- * 1. Clusters     — merged Network Graph + Custom Cluster + per-cluster reports
- * 2. DNA Painter  — chromosome painting (separate product, ingests cluster data)
- * 3. Match Hub    — cross-vendor deduplication
- * 4. One-to-One   — per-match analyses (4 surviving tools; grows over time)
+ * - DNAMatch     — the match list + lineage groups + match profile +
+ *                  Match list cleanup (the cross-vendor dedup formerly
+ *                  surfaced as "Match Hub", now a filter inside the list).
+ * - Network Graph — standalone tool: the genetic network visualisation.
+ * - Clusters      — standalone tool: group matches by genetic similarity.
+ * - DNA Painter   — chromosome painting (ingests cluster data).
+ * - One-to-One    — per-match analyses; cM Clarity live, the rest "coming soon".
  *
- * DNAMatch umbrella removed from sidebar (already absent from latest Figma).
- * /network-graph + /dnamatch 308-redirect to /clusters via next.config.mjs.
+ * Redirects (next.config.mjs): /match-hub → /dnamatch, / → /dnamatch.
  */
 export const NAV_GROUPS: NavGroup[] = [
   {
     id: 'top',
     items: [
-      { slug: 'dnamatch', label: 'DNAMatch basics', toolLabel: 'DNAMatch overview' },
+      { slug: 'dnamatch', label: 'DNAMatch', toolLabel: 'DNAMatch overview' },
+      { slug: 'network-graph', label: 'Network Graph', toolLabel: 'Network Graph tool' },
       { slug: 'clusters', label: 'Clusters', toolLabel: 'Clusters tool' },
       { slug: 'dna-painter', label: 'DNA Painter', toolLabel: 'DNA Painter tool' },
-      { slug: 'match-hub', label: 'Match Hub', toolLabel: 'Match Hub tool' },
     ],
   },
   {
@@ -41,10 +44,10 @@ export const NAV_GROUPS: NavGroup[] = [
       // { slug: 'case-file', label: 'Match Case File', toolLabel: 'One-to-One: Match Case File' },
       // { slug: 'mrca-finder', label: 'MRCA Finder', toolLabel: 'One-to-One: MRCA Finder' },
       // { slug: 'triangulation-lens', label: 'Triangulation Lens', toolLabel: 'One-to-One: Triangulation Lens' },
-      { slug: 'side-assignment', label: 'Side Assignment Inspector', toolLabel: 'One-to-One: Side Assignment Inspector' },
-      { slug: 'wato-workspace', label: 'WATO Workspace', toolLabel: 'One-to-One: WATO Workspace' },
+      { slug: 'side-assignment', label: 'Side Assignment Inspector', toolLabel: 'One-to-One: Side Assignment Inspector', comingSoon: true },
+      { slug: 'wato-workspace', label: 'WATO Workspace', toolLabel: 'One-to-One: WATO Workspace', comingSoon: true },
       // { slug: 'y-mt-compare', label: 'Y / mtDNA Compare', toolLabel: 'One-to-One: Y / mtDNA Compare' },
-      { slug: 'inferred-segments', label: 'Inferred Segments', toolLabel: 'One-to-One: Inferred Segments' },
+      { slug: 'inferred-segments', label: 'Inferred Segments', toolLabel: 'One-to-One: Inferred Segments', comingSoon: true },
     ],
   },
 ];

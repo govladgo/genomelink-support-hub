@@ -99,7 +99,33 @@ function SidebarRow({
       <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
         {item.label}
       </span>
+      {item.comingSoon && <ComingSoonBadge active={active} />}
     </Link>
+  );
+}
+
+/** Small "Soon" pill rendered next to not-yet-live nav items. */
+function ComingSoonBadge({ active }: { active: boolean }) {
+  return (
+    <span
+      style={{
+        marginLeft: 'auto',
+        flexShrink: 0,
+        padding: '2px 8px',
+        borderRadius: 999,
+        fontFamily: 'var(--gl-font)',
+        fontSize: 10,
+        fontWeight: 700,
+        lineHeight: '14px',
+        letterSpacing: '0.04em',
+        textTransform: 'uppercase',
+        background: active ? 'rgba(255,255,255,0.18)' : 'var(--gl-color-warn-bg)',
+        color: active ? '#fff' : 'var(--gl-color-primary-attention-dark)',
+        whiteSpace: 'nowrap',
+      }}
+    >
+      Soon
+    </span>
   );
 }
 

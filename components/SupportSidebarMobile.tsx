@@ -201,6 +201,26 @@ function PickerRow({
       <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
         {item.label}
       </span>
+      {item.comingSoon && !active && (
+        <span
+          style={{
+            marginLeft: 'auto',
+            flexShrink: 0,
+            padding: '2px 8px',
+            borderRadius: 999,
+            fontSize: 10,
+            fontWeight: 700,
+            lineHeight: '14px',
+            letterSpacing: '0.04em',
+            textTransform: 'uppercase',
+            background: 'var(--gl-color-warn-bg)',
+            color: 'var(--gl-color-primary-attention-dark)',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          Soon
+        </span>
+      )}
       {active && (
         <span aria-hidden style={{ marginLeft: 'auto', display: 'inline-flex' }}>
           <CheckIcon />
