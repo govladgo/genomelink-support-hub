@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ContentLayout } from '@/components/ContentLayout';
 import { InfoCallout } from '@/components/InfoCallout';
 import { findNavItem } from '@/lib/nav';
-import { CLUSTERS_URL, DNA_PAINTER_URL } from '@/lib/toolUrls';
+import { CLUSTERS_URL, CHROMOSOME_CANVAS_URL } from '@/lib/toolUrls';
 
 const NAV = findNavItem('clusters')!;
 
@@ -215,10 +215,10 @@ export default function Page() {
             hubs, endogamy risk). Use it for macro-structure; use Clusters for the per-group report.
           </li>
           <li>
-            <strong><Link href="/dna-painter">DNA Painter</Link></strong> — its &ldquo;Select a
-            cluster&rdquo; import paints a whole cluster onto a chromosome map in one step, so you
-            can move from &ldquo;these matches group together&rdquo; to &ldquo;here&apos;s the
-            segment evidence&rdquo; without re-selecting matches by hand.
+            <strong><Link href="/chromosome-canvas">Chromosome Canvas</Link></strong> — its
+            &ldquo;Select a cluster&rdquo; import paints a whole cluster onto a chromosome map in one
+            step, so you can move from &ldquo;these matches group together&rdquo; to &ldquo;here&apos;s
+            the segment evidence&rdquo; without re-selecting matches by hand.
           </li>
           <li>
             <strong><Link href="/dnamatch">DNAMatch</Link></strong> — lineage tags and side
@@ -239,7 +239,7 @@ export default function Page() {
         <Link href={CLUSTERS_URL} className="gl-btn gl-btn--primary">
           Open Clusters
         </Link>
-        <Link href={`${DNA_PAINTER_URL}/painter`} className="gl-btn gl-btn--secondary">
+        <Link href={`${CHROMOSOME_CANVAS_URL}/canvas`} className="gl-btn gl-btn--secondary">
           Paint a cluster
         </Link>
       </div>

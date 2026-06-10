@@ -4,9 +4,9 @@ import { ContentLayout } from '@/components/ContentLayout';
 import { InfoCallout } from '@/components/InfoCallout';
 import { OnThisPage } from '@/components/OnThisPage';
 import { findNavItem } from '@/lib/nav';
-import { DNA_PAINTER_URL } from '@/lib/toolUrls';
+import { CHROMOSOME_CANVAS_URL } from '@/lib/toolUrls';
 
-const NAV = findNavItem('dna-painter')!;
+const NAV = findNavItem('chromosome-canvas')!;
 
 export const metadata = {
   title: `${NAV.label} — DNA Match Support Hub`,
@@ -16,13 +16,13 @@ export default function Page() {
   return (
     <ContentLayout
       eyebrow={NAV.toolLabel}
-      title="How to use DNA Painter"
+      title="How to use Chromosome Canvas"
       lede="View your DNA matches on a chromosome map to identify shared genome segments with relatives — and which parent's side each segment came from."
     >
       <section style={sectionGroup}>
         <p style={bodyText}>
-          DNA Painting lets you see where you share DNA with your matches — right on a chromosome
-          map.
+          Chromosome Canvas lets you paint your DNA matches onto a chromosome map, so you can see
+          exactly where you share DNA with each match.
         </p>
         <p style={bodyText}>
           Each of your 22 chromosomes is shown as a horizontal bar, split into a paternal (top) and
@@ -44,7 +44,7 @@ export default function Page() {
         <h2 style={h2Style}>Quick start</h2>
         <ol style={orderedList}>
           <li>
-            From DNA Matches → Tools, click <strong>Open Painter</strong>. Then{' '}
+            From DNA Matches → Tools, click <strong>Open Canvas</strong>. Then{' '}
             <strong>+ NEW CANVAS</strong> to start a fresh chromosome map.
           </li>
           <li>
@@ -107,7 +107,7 @@ export default function Page() {
       <section id="long-term" style={sectionGroup}>
         <h2 style={h2Style}>Your canvas is a long-term research project</h2>
         <p style={bodyText}>
-          A canvas in DNA Painter is not a quick sketch — it&apos;s a research notebook that grows
+          A canvas in Chromosome Canvas is not a quick sketch — it&apos;s a research notebook that grows
           over weeks, months, or even years as you discover new DNA matches, receive updated results
           from testing companies, and refine your understanding of your ancestry.
         </p>
@@ -178,7 +178,7 @@ export default function Page() {
       <section id="import-flow" style={sectionGroup}>
         <h2 style={h2Style}>Importing matches</h2>
         <p style={bodyText}>
-          When you create a new canvas, DNA Painter walks you through three modal steps to bring
+          When you create a new canvas, Chromosome Canvas walks you through three modal steps to bring
           matches in. After the canvas exists you can always add more later via Paint Mode (covered
           next).
         </p>
@@ -218,7 +218,7 @@ export default function Page() {
         </p>
 
         <InfoCallout title="Re-importing is safe">
-          Importing the same matches again won&apos;t create duplicates — DNA Painter recognises
+          Importing the same matches again won&apos;t create duplicates — Chromosome Canvas recognises
           previously-painted matches by ID and refreshes their segments rather than stacking. To
           remove matches from the canvas, use UNPAINT in Paint Mode rather than re-importing.
         </InfoCallout>
@@ -570,14 +570,14 @@ export default function Page() {
       <section id="glossary" style={sectionGroup}>
         <h2 style={h2Style}>Glossary</h2>
         <dl style={glossary}>
-          <dt style={dt}>Autosome</dt><dd style={dd}>One of 22 non-sex chromosomes. DNA Painter displays all 22. Sex chromosomes (X, Y) and mitochondrial DNA are not included.</dd>
+          <dt style={dt}>Autosome</dt><dd style={dd}>One of 22 non-sex chromosomes. Chromosome Canvas displays all 22. Sex chromosomes (X, Y) and mitochondrial DNA are not included.</dd>
           <dt style={dt}>Base pair (bp)</dt><dd style={dd}>Fundamental DNA length unit. One megabase (Mb) = 1,000,000 base pairs.</dd>
           <dt style={dt}>Canvas</dt><dd style={dd}>Personal chromosome-painting workspace. Stores its own segments, import history, and undo log.</dd>
           <dt style={dt}>Centimorgan (cM)</dt><dd style={dd}>Genetic-distance unit. Total autosomal genome ≈ 3,400 cM.</dd>
           <dt style={dt}>Cluster</dt><dd style={dd}>DNA-match group identified by Genomelink&apos;s clustering algorithm as likely related through a common ancestor.</dd>
           <dt style={dt}>IBD</dt><dd style={dd}>Identical by Descent — DNA shared through inheritance from the same ancestor.</dd>
           <dt style={dt}>IBS</dt><dd style={dd}>Identical by State — DNA that looks shared but is common in the general population; not a genealogical connection.</dd>
-          <dt style={dt}>localStorage</dt><dd style={dd}>Browser storage DNA Painter uses to save canvases. Persists between sessions but specific to this browser + device.</dd>
+          <dt style={dt}>localStorage</dt><dd style={dd}>Browser storage Chromosome Canvas uses to save canvases. Persists between sessions but specific to this browser + device.</dd>
           <dt style={dt}>Segment</dt><dd style={dd}>Contiguous DNA stretch shared between you and a match — chromosome, start, end, cM.</dd>
           <dt style={dt}>Side</dt><dd style={dd}>Paternal, maternal, or unknown. Determines vertical placement on the chromosome bar.</dd>
           <dt style={dt}>SNP</dt><dd style={dd}>Single Nucleotide Polymorphism — individual DNA positions that vary between people.</dd>
@@ -587,8 +587,8 @@ export default function Page() {
       </section>
 
       <div style={{ marginTop: 12 }}>
-        <Link href={`${DNA_PAINTER_URL}/painter`} className="gl-btn gl-btn--primary">
-          Open DNA Painter
+        <Link href={`${CHROMOSOME_CANVAS_URL}/canvas`} className="gl-btn gl-btn--primary">
+          Open Canvas
         </Link>
       </div>
     </ContentLayout>

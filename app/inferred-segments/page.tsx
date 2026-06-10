@@ -26,7 +26,7 @@ export default function Page() {
       <section>
         <h2 style={sectionTitle}>How we adapted classical ISG</h2>
         <p style={paraStyle}>
-          DNA Painter&apos;s classical Inferred Segments Generator needs a triplet: you, a tested
+          The classical Inferred Segments Generator (ISG) technique needs a triplet: you, a tested
           close relative, and the target match. It computes what the relative shares with the match
           that you don&apos;t — segments the common ancestor passed to them but not to you. That
           assumes the relative is also tested AND that you have the relative&apos;s match list to

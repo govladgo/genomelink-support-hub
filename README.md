@@ -7,7 +7,7 @@ A unified how-to/help site that consolidates content for every DNA Match tool in
 - **DNAMatch** — overview of the DNA Match product family.
 - **Network Graph** — content ported from `network-graph-prototype-2-0`.
 - **Clusters** — content TBD.
-- **DNA Painter** — content ported from `dna-painter-v2`.
+- **Chromosome Canvas** — chromosome painting (formerly "DNA Painter"; content ported from `dna-painter-v2`).
 - **Match Hub** — content ported from `genomelink-match-hub`.
 - **1-on-1 tools** — eight tools from `genomelink-one-on-one`:
   cM Clarity · Match Case File · MRCA Finder · Triangulation Lens ·

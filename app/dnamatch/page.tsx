@@ -48,8 +48,8 @@ export default function Page() {
         <h3 style={subSectionTitle}>List vs. Tools toggle</h3>
         <p style={paraStyle}>
           A toggle at the top of the page switches between the flat <strong>List</strong> of matches
-          and the <strong>Tools</strong> grid — three large cards (Network Graph, Clusters, DNA
-          Painter) that operate across your whole match list rather than a single match.
+          and the <strong>Tools</strong> grid — three large cards (Network Graph, Clusters,
+          Chromosome Canvas) that operate across your whole match list rather than a single match.
         </p>
       </section>
 
@@ -99,7 +99,7 @@ export default function Page() {
           Merging duplicates first means every downstream tool —{' '}
           <Link href="/network-graph">Network Graph</Link>,{' '}
           <Link href="/clusters">Clusters</Link>, and{' '}
-          <Link href="/dna-painter">DNA Painter</Link> — works from a deduplicated list, so each
+          <Link href="/chromosome-canvas">Chromosome Canvas</Link> — works from a deduplicated list, so each
           person counts once and the clustering math isn&apos;t skewed by repeats.
         </InfoCallout>
       </section>
@@ -137,7 +137,7 @@ export default function Page() {
         </ul>
         <InfoCallout title="Lineages flow into every other tool">
           Once you tag a match into a lineage, that tag travels with it everywhere — list filters,
-          cluster results, the Network Graph node colour, and the DNA Painter source filters all
+          cluster results, the Network Graph node colour, and the Chromosome Canvas source filters all
           read your lineage assignments. The more lineages you maintain, the sharper every other
           surface gets.
         </InfoCallout>
@@ -207,7 +207,7 @@ export default function Page() {
             signal across the whole group.
           </li>
           <li>
-            <strong><Link href="/dna-painter">DNA Painter</Link></strong> — paint a cluster onto a
+            <strong><Link href="/chromosome-canvas">Chromosome Canvas</Link></strong> — paint a cluster onto a
             chromosome map to see which segments came from which branch. Best once you know what a
             cluster represents and want chromosome-level evidence.
           </li>

@@ -9,7 +9,7 @@ import { SupportFooter } from '@/components/SupportFooter';
 export const metadata: Metadata = {
   title: 'DNA Match Support Hub — Genomelink',
   description:
-    'How-to guides for every Genomelink DNA Match tool — DNA Painter, Match Hub, Network Graph, Clusters, and the eight 1-on-1 tools.',
+    'How-to guides for every Genomelink DNA Match tool — DNAMatch, Network Graph, Clusters, Chromosome Canvas, and the One-to-One tools.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -77,7 +77,7 @@ export default function Page() {
         <p style={paraStyle}>
           The V4 cM ranges are the community-validated Shared cM Project v4 (Bettinger / Larkin /
           Perl 2020). The expected segment counts + longest cM values are approximations drawn from
-          Bhargava 2014, Speed &amp; Balding 2015, and aggregated DNA Painter community observations
+          Bhargava 2014, Speed &amp; Balding 2015, and aggregated genetic-genealogy community observations
           — they represent the rough central tendency, not a precise prediction.
         </p>
       </section>

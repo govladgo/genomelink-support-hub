@@ -17,12 +17,15 @@ export interface NavGroup {
  * - DNAMatch     — the match list + lineage groups + match profile +
  *                  Match list cleanup (the cross-vendor dedup formerly
  *                  surfaced as "Match Hub", now a filter inside the list).
- * - Network Graph — standalone tool: the genetic network visualisation.
- * - Clusters      — standalone tool: group matches by genetic similarity.
- * - DNA Painter   — chromosome painting (ingests cluster data).
- * - One-to-One    — per-match analyses; cM Clarity live, the rest "coming soon".
+ * - Network Graph     — standalone tool: the genetic network visualisation.
+ * - Clusters          — standalone tool: group matches by genetic similarity.
+ * - Chromosome Canvas — chromosome painting (ingests cluster data). Renamed
+ *                       from "DNA Painter" 2026-05 to avoid the dnapainter.com
+ *                       trademark.
+ * - One-to-One        — per-match analyses; cM Clarity live, the rest "coming soon".
  *
- * Redirects (next.config.mjs): /match-hub → /dnamatch, / → /dnamatch.
+ * Redirects (next.config.mjs): /match-hub → /dnamatch, /dna-painter →
+ * /chromosome-canvas, / → /dnamatch.
  */
 export const NAV_GROUPS: NavGroup[] = [
   {
@@ -31,7 +34,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { slug: 'dnamatch', label: 'DNAMatch', toolLabel: 'DNAMatch overview' },
       { slug: 'network-graph', label: 'Network Graph', toolLabel: 'Network Graph tool' },
       { slug: 'clusters', label: 'Clusters', toolLabel: 'Clusters tool' },
-      { slug: 'dna-painter', label: 'DNA Painter', toolLabel: 'DNA Painter tool' },
+      { slug: 'chromosome-canvas', label: 'Chromosome Canvas', toolLabel: 'Chromosome Canvas tool' },
     ],
   },
   {

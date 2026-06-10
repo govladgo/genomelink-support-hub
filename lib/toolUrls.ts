@@ -10,8 +10,11 @@ export const MATCH_HUB_URL =
   process.env.NEXT_PUBLIC_MATCH_HUB_URL ?? 'https://genomelink-match-hub.vercel.app';
 export const CM_PREDICTOR_URL =
   process.env.NEXT_PUBLIC_CM_PREDICTOR_URL ?? 'https://genomelink-cm-predictor.vercel.app';
-export const DNA_PAINTER_URL =
-  process.env.NEXT_PUBLIC_DNA_PAINTER_URL ?? 'https://dna-painter-v2.vercel.app';
+// Chromosome Canvas (formerly "DNA Painter"). The prototype is still
+// deployed under the dna-painter-v2 Vercel project; the production app path
+// is /canvas (was /painter). Devs will rehost when they pick up the prototype.
+export const CHROMOSOME_CANVAS_URL =
+  process.env.NEXT_PUBLIC_CHROMOSOME_CANVAS_URL ?? 'https://dna-painter-v2.vercel.app';
 export const NETWORK_GRAPH_URL =
   process.env.NEXT_PUBLIC_NETWORK_GRAPH_URL ??
   'https://network-graph-prototype-2-0.vercel.app';

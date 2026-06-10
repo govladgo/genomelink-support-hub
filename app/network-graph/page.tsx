@@ -138,7 +138,7 @@ export default function Page() {
           Network Graph is the macro view. To go deeper: open the{' '}
           <Link href="/clusters">Clusters</Link> tool for a per-cluster report (members, surnames,
           locations, research action plan), or send a cluster to{' '}
-          <Link href="/dna-painter">DNA Painter</Link> to see its segments on a chromosome map.
+          <Link href="/chromosome-canvas">Chromosome Canvas</Link> to see its segments on a chromosome map.
           Side and lineage tags you set anywhere flow through to the node colours here.
         </p>
       </section>

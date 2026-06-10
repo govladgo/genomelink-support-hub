@@ -10,6 +10,9 @@ const nextConfig = {
       // deduplication folded into the DNAMatch match list ("Match list
       // cleanup"). Redirect the old slug for continuity.
       { source: '/match-hub', destination: '/dnamatch', permanent: true },
+
+      // DNA Painter renamed to Chromosome Canvas (dnapainter.com trademark).
+      { source: '/dna-painter', destination: '/chromosome-canvas', permanent: true },
     ];
   },
 };
