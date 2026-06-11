@@ -72,34 +72,63 @@ function SidebarRow({
   active: boolean;
   nested?: boolean;
 }) {
+  const rowStyle: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 12,
+    padding: nested ? '10px 12px 10px 24px' : '10px 12px',
+    borderRadius: 8,
+    fontFamily: 'var(--gl-font)',
+    fontSize: 14,
+    fontWeight: 600,
+    lineHeight: '20px',
+    textDecoration: 'none',
+    transition: 'var(--gl-transition-base)',
+  };
+
+  const icon =
+    item.slug === 'dnamatch' ? (
+      <DnaMatchIcon active={active} />
+    ) : (
+      <ToolIcon slug={item.slug} active={active} />
+    );
+  const label = (
+    <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+      {item.label}
+    </span>
+  );
+
+  // Coming-soon tools are visible in the nav but not yet clickable.
+  if (item.comingSoon) {
+    return (
+      <div
+        aria-disabled="true"
+        title="Coming soon"
+        style={{
+          ...rowStyle,
+          background: 'transparent',
+          color: 'var(--gl-color-text-subtle)',
+          cursor: 'default',
+        }}
+      >
+        {icon}
+        {label}
+        <ComingSoonBadge active={false} />
+      </div>
+    );
+  }
+
   return (
     <Link
       href={`/${item.slug}`}
       style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 12,
-        padding: nested ? '10px 12px 10px 24px' : '10px 12px',
-        borderRadius: 8,
+        ...rowStyle,
         background: active ? 'var(--gl-color-primary-dark)' : 'transparent',
         color: active ? '#fff' : 'var(--gl-color-primary-dark)',
-        fontFamily: 'var(--gl-font)',
-        fontSize: 14,
-        fontWeight: 600,
-        lineHeight: '20px',
-        textDecoration: 'none',
-        transition: 'var(--gl-transition-base)',
       }}
     >
-      {item.slug === 'dnamatch' ? (
-        <DnaMatchIcon active={active} />
-      ) : (
-        <ToolIcon slug={item.slug} active={active} />
-      )}
-      <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-        {item.label}
-      </span>
-      {item.comingSoon && <ComingSoonBadge active={active} />}
+      {icon}
+      {label}
     </Link>
   );
 }

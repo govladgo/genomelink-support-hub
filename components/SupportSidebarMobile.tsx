@@ -170,6 +170,69 @@ function PickerRow({
   nested?: boolean;
   onSelect: () => void;
 }) {
+  const rowStyle: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 12,
+    minHeight: 48,
+    padding: nested ? '12px 12px 12px 28px' : '12px 12px',
+    borderRadius: 8,
+    fontFamily: 'var(--gl-font)',
+    fontSize: 16,
+    fontWeight: 600,
+    lineHeight: '24px',
+    textDecoration: 'none',
+    WebkitTapHighlightColor: 'transparent',
+  };
+
+  const icon =
+    item.slug === 'dnamatch' ? (
+      <DnaMatchIcon active={active} />
+    ) : (
+      <ToolIcon slug={item.slug} active={active} />
+    );
+  const label = (
+    <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+      {item.label}
+    </span>
+  );
+  const soonBadge = (
+    <span
+      style={{
+        marginLeft: 'auto',
+        flexShrink: 0,
+        padding: '2px 8px',
+        borderRadius: 999,
+        fontSize: 10,
+        fontWeight: 700,
+        lineHeight: '14px',
+        letterSpacing: '0.04em',
+        textTransform: 'uppercase',
+        background: 'var(--gl-color-warn-bg)',
+        color: 'var(--gl-color-primary-attention-dark)',
+        whiteSpace: 'nowrap',
+      }}
+    >
+      Soon
+    </span>
+  );
+
+  // Coming-soon tools stay listed but aren't selectable yet.
+  if (item.comingSoon) {
+    return (
+      <div
+        role="option"
+        aria-selected={false}
+        aria-disabled="true"
+        style={{ ...rowStyle, background: 'transparent', color: 'var(--gl-color-text-subtle)', cursor: 'default' }}
+      >
+        {icon}
+        {label}
+        {soonBadge}
+      </div>
+    );
+  }
+
   return (
     <Link
       href={`/${item.slug}`}
@@ -177,50 +240,13 @@ function PickerRow({
       role="option"
       aria-selected={active}
       style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 12,
-        minHeight: 48,
-        padding: nested ? '12px 12px 12px 28px' : '12px 12px',
-        borderRadius: 8,
+        ...rowStyle,
         background: active ? 'var(--gl-color-primary-dark)' : 'transparent',
         color: active ? '#fff' : 'var(--gl-color-primary-dark)',
-        fontFamily: 'var(--gl-font)',
-        fontSize: 16,
-        fontWeight: 600,
-        lineHeight: '24px',
-        textDecoration: 'none',
-        WebkitTapHighlightColor: 'transparent',
       }}
     >
-      {item.slug === 'dnamatch' ? (
-        <DnaMatchIcon active={active} />
-      ) : (
-        <ToolIcon slug={item.slug} active={active} />
-      )}
-      <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-        {item.label}
-      </span>
-      {item.comingSoon && !active && (
-        <span
-          style={{
-            marginLeft: 'auto',
-            flexShrink: 0,
-            padding: '2px 8px',
-            borderRadius: 999,
-            fontSize: 10,
-            fontWeight: 700,
-            lineHeight: '14px',
-            letterSpacing: '0.04em',
-            textTransform: 'uppercase',
-            background: 'var(--gl-color-warn-bg)',
-            color: 'var(--gl-color-primary-attention-dark)',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Soon
-        </span>
-      )}
+      {icon}
+      {label}
       {active && (
         <span aria-hidden style={{ marginLeft: 'auto', display: 'inline-flex' }}>
           <CheckIcon />

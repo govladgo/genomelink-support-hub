@@ -41,7 +41,7 @@ export const NAV_GROUPS: NavGroup[] = [
     id: 'one-on-one',
     label: 'One-to-One',
     items: [
-      { slug: 'cm-clarity', label: 'cM Clarity', toolLabel: 'One-to-One: cM Clarity' },
+      { slug: 'cm-clarity', label: 'cM Clarity', toolLabel: 'One-to-One: cM Clarity', comingSoon: true },
       // ── Hidden 2026-05-20 per dev validation; re-enable here when work resumes.
       //    Route folders renamed app/_<slug>/ to opt them out of Next.js routing.
       // { slug: 'case-file', label: 'Match Case File', toolLabel: 'One-to-One: Match Case File' },
